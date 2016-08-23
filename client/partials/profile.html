@@ -1,0 +1,32 @@
+<div class= 'topbanner'>
+    <a href="#/logout" style="color: lightblue" >Logout</a>
+<div>
+
+<div class= 'top_collections'>
+    <h2>Top Collections </h2>
+    {{stuffs}}
+</div><br><br>
+
+<div class= 'topics'>
+    <h2>Topics</h2>
+    {{subjects}}
+</div><br><br>
+
+<div class = 'others'>
+    <button>Add a Collection</button>
+    <button>Find Other Collections</button>
+    <button>See my Collections</button>
+</div>
+
+<div id='dialog-form' title='Create a new Collection'>
+    <form class= 'from' action="#" id = 'addcollecttion'>
+        <fieldset>
+            <input type="text" placeholder="Name"><br>
+            <input type="text" placeholder="Add a Topic"><br>
+            <input type="text" placeholder="Description"><br>
+            <input type="radio" name='pubpriv' value='Public'><br>
+            <input type="radio" name='pubpriv' value='Private'><br>
+            <input type="submit" name="add" value="Add">
+        </fieldset>
+    </form>
+<div>
