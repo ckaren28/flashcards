@@ -1,0 +1,26 @@
+*{
+    margin: 10px;
+}
+form{
+    display: inline-block;
+    text-align: right;
+}
+.projectname, .welcome, .logout{
+    display: inline-block;
+}
+.projectname{
+    margin-right: 100px;
+}
+.welcome{
+    padding-left: 370px;
+
+}
+
+.login, .registration{
+    display: inline-block;
+    padding: 60px;
+    vertical-align: top;
+}
+.post{
+    text-align: center;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "file_structure",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Karen Chin <c.karen28@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ckaren28/Friends",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-cookies": "^1.5.8"
+  }
+}
