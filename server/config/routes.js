@@ -6,24 +6,44 @@ var Notecard = require('./../controllers/notecard.js');
 
 
 module.exports = function(app){
+	//need to pass username as req.body.username, email as req.body.email, password as req.body.password, confirm_pw as req.body.confirm_pw // will get user back
     app.post('/register', User.register);
+    //need to pass email as req.body.email // will get user back
     app.post('/login', User.login);
+    //need to pass user id as req.body._id, get id from cookied user // will get user topcollections, subject back
     app.get('/getuser', User.getuser)
+    //need to pass collection id as param id // will get collection back with reviews, notecards and subject info
     app.get('/getcollection/:id', Collection.getcollection)
+    //need to pass subject id as param sub // will get collections back based on subject
     app.get('/getcollectionsbysub/:sub', Collection.getcollectionsbysub)
+    //need to pass userid as param user // will get collections back based on user
     app.get('/getcollectionsbyuser/:user', Collection.getcollectionsbyuser)
+    //need to pass userid as req.body._user, collection id as req.body._collection// will push collection into user top collection array// will return nothing
     app.get('/addtotopcollections', Collection.addtotopcollections)
+    //need to pass name as req.body.name, public as req.body.public, description as req.body.description, userid as req.body._user, categoryid as req.body._category// will add //will return nothing
     app.post('/addcollection', Collection.addcollection)
-    app.post('/editcollection/:id', Collection.editdescription)
+    //need to pass collection id as req.params.id, userid as req.body._user // will remove collection completely from database// will return nothing
     app.get('/removecollection/:id', Collection.removecollection)
+    //need to pass userid of cookied user as req.body._user // will remove colleciton from topcolleciton// will return nothing
     app.get('/removecollectionfromtop', Collection.removecollectionfromtop)
-    app.post('/addsubject', Subject.addsubject)
-    app.get('/getsubjects', Subject.getsubjects)
+    //need to pass collection id as param id, need to pass name as req.body.name, description as req.body.description, public as req.body.public // will return edited collection
+    app.post('/editcollection/:id', Collection.editdescription)
+    //need to pass subect id as param id // will  return subect with populated user and collecitons info
     app.get('/getsubject/:id', Subject.getsubject)
+    //no need to pass anything // will return all subjects
+    app.get('/getsubjects', Subject.getsubjects)
+    //need to pass name as req.body.name, description as req.body.description, userid from cookied user as req.body._user// will return nothing
+    app.post('/addsubject', Subject.addsubject)
+    //need to pass subject id as param id// need to pass name as req.body.name, description as req.body.description // will return edited subject
     app.post('/editsubject/:id', Subject.editsubject)
+    //need to pass subject id as param id// pass subect user as req.body._user// will remove subject id // will return nothing
     app.get('/removesubject/:id', Subject.removesubject)
+    //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection // will return notecard
     app.post('/pushcard', Notecard.pushcard)
+    //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection, pass current index as req.body.index// will return notecard
     app.post('/pushcardatindex',Notecard.pushcardatindex)
+    //need to pass notecard id as params id, question as req.body.question, answer as req.body.answer// will return notecardd
     app.post('/editcard/:id', Notecard.editcard)
-    app.get('/removecard')
+    //need to pass notecard id as params, collection id as req.body._collection // will remove notecard from list will return nothing
+    app.get('/removecard/:id', Notecard.removecard)
 };

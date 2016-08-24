@@ -59,7 +59,12 @@ function subjectController(){
 				subject.name = req.body.name;
 				subject.description = req.body.description;
 				subject.save(function(err){
-					res.json(subject)
+					if(err){
+						res.json(err)
+					}
+					else{
+						res.json(subject)
+					}
 				})
 			}
 		})
@@ -77,9 +82,11 @@ function subjectController(){
 					else{
 						for(var i=0; i<user._subjects.length; i++){
 							if(user._subjects[i] == req.params.id){
-							user._subjects.splice(i,1)
+								user._subjects.splice(i,1)
+								break
 							}
 						}
+						res.send()
 					}
 				})
 			}
