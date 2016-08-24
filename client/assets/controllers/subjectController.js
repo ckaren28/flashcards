@@ -1,4 +1,4 @@
-app.controller('profileController', [$scope, $location, profileFactory, function($scope, $location, profileFactory){
+app.controller('profileController', [$scope, $location, profileFactory, $routeParams, function($scope, $location, profileFactory, $routeParams){
 
 //this is where the data for top collections will be stored.
 $scope.topCollections = {};
@@ -8,12 +8,13 @@ $scope.index = function(){
     $scope.topCollections = returned_Data.data
   })
 }
+index()
 
 //On a subject click (needs id)
 $scope.show_subject = function(){
-  userFactory.show_subject(function(){
+  userFactory.show_subject($routeParams.id, function(){
     /// this goes to the subject page
-    //$location.url('/')
+    //$location.url('/subjectpage')
   })
 }
 
