@@ -4,7 +4,7 @@ var Collection = require('./../controllers/collections.js')
 var Subject = require('./../controllers/subject.js')
 
 
-module.exports = (function(app){
+module.exports = function(app){
     app.post('/register', User.register);
     app.post('/login', User.login);
     app.get('/getuser', User.getuser)
@@ -17,4 +17,4 @@ module.exports = (function(app){
     app.get('/removecollection', Collection.removecollection)
     app.get('/removecollectionfromtop', Collection.removecollectionfromtop)
 
-});
+};
