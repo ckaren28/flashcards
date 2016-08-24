@@ -3,7 +3,7 @@ app.factory('profileFactory', [$http, function($http){
 
 
 	}
-	return new userFactory()
-}])
+	return new profileFactory()
+  }])
 
 }]);
