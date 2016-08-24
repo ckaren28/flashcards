@@ -41,11 +41,14 @@ var UserSchema = new mongoose.Schema({
 	_reviews: [{
 		type: Schema.Types.ObjectId, ref: 'Review' 
 	}],
+	_collections: [{
+		type: Schema.Types.ObjectId, ref: 'Collection'
+	}]
 	_topcollections: [{
 		type: Schema.Types.ObjectId, ref: 'Collection'
 	}],
-	_categories: [{
-		type: Schema.Types.ObjectId, ref: 'Category' 
+	_subjects: [{
+		type: Schema.Types.ObjectId, ref: 'Subject' 
 	}]
 }, {timestamps:true})
 
