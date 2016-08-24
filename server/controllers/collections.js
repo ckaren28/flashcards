@@ -96,7 +96,7 @@ function collectionController(){
 		})
 	}
 	this.removecollection = function(req,res){
-		Collection.remove({_id: req.body._collection}, function(err){
+		Collection.remove({_id: req.params.id}, function(err){
 			if(err){
 				res.json(err)
 			}
@@ -109,6 +109,7 @@ function collectionController(){
 						for(var i=0; i<user._collections.length; i++){
 							if(user._collections[i] == req.body._collection){
 								user._collection.splice(i,1)
+								break;
 							}
 						}
 						res.send()
@@ -126,6 +127,7 @@ function collectionController(){
 				for(var i=0; i<user._topcollections.length; i++){
 					if(user._topcollections[i] == req.body._collection){
 						user._topcollection.splice(i,1)
+						break;
 					}
 				}
 				res.send()
@@ -133,7 +135,7 @@ function collectionController(){
 		})
 	}
 	this.editcollection = function(req,res){
-		Collection.findOne({_id: req.body._collection}, function(err, collection){
+		Collection.findOne({_id: req.params.id}, function(err, collection){
 			if(err){
 				res.json(err)
 			}
