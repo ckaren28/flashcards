@@ -14,4 +14,5 @@ var NotecardSchema = new mongoose.Schema({
 		type: Schema.Types.ObjectId, ref: 'Collection'
 	}
 }, {timestamps:true})
+
 var Notecard = mongoose.model('Notecard', NotecardSchema)
