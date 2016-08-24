@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
-var Notecard = require('Notecard')
-var Collection = require('Collection')
+var Notecard = mongoose.model('Notecard')
+var Collection = mongoose.model('Collection')
 
 function notecardController(){
 	this.pushcard = function(req,res){

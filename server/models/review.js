@@ -18,3 +18,5 @@ var ReviewSchema = new mongoose.Schema({
 	}
 
 },{timestamps:true})
+
+var Review = mongoose.model('Review', ReviewSchema)
