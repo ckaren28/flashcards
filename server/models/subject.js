@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var CategorySchema = new mongoose.Schema({
+var SubjectSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		maxlength: [25,"Your category name must be shorter than 26 characters"],
@@ -19,4 +19,4 @@ var CategorySchema = new mongoose.Schema({
 	}]
 
 }, {timestamps:true})
-var Category = mongoose.model('Category', CategorySchema)
+var Subject = mongoose.model('Subject', SubjectSchema)
