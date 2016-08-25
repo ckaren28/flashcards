@@ -40,13 +40,13 @@ function subjectController(){
 						console.log(user)
 						user._subjects.push(subject)
 						console.log(user)
-						user.savenoval(function(err){
+						user.save({validateBeforeSave: false}, function(err){
 							if(err){
-								console.log('errr')
 								res.json(err)
 							}
 							else{
 								console.log('hello')
+								console.log(user)
 								res.send()
 							}
 						})

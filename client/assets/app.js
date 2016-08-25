@@ -33,6 +33,10 @@ app.config(function($routeProvider){ $routeProvider
         templateUrl:'partials/test.html',
         controller: 'notecardController'
     })
+    // .when('/mycollection/:id', {
+    //     templateUrl: 'partials/all_user_collections.html',
+    //     controller: 'collectionController'
+    // })
     .otherwise({
         redirectTo: '/'
     });
