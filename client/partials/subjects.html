@@ -1,4 +1,3 @@
-
 <div class= 'topbanner'>
         <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
         <h1>FlashCards</h1><br><br><br><br>
@@ -6,12 +5,13 @@
         <div class= 'logout' ng- click='logout()' > Logout</div>
         <hr color="#63cd40" >
     </div><br>
-<input type="search" placeholder="Search for a Collection" class='searchbar'>
+    <input type="search" placeholder="Search for a Collection" class='searchbar'>
 
-<h2>Collections</h2>
-<div class= 'all_collections' >
+
+<h2> All Collections in {{subject_name}} </h2>
+<div class= 'allsubjects' ng-click='view_collection()'>
     <div class= 'collection'>
-        {{stuff}}<br>
+        {{all collections in a subject}}<br>
         <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top()'>
-    </div>
-</div><br><br>
+    </div><br>
+</div>

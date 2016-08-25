@@ -1,27 +1,22 @@
-<style>
-.card, .sidebar{
-    display: inline-block;
-    vertical-align: top;
-}
-
-</style>
-
 <div class= 'topbanner'>
-    <div class= 'logout'><a href="#/logout" style="color: lightblue" >Logout</a></div>
-    <div class='home'><a href="#/home" style="color:lightblue"> Home </a></div>
-    <div class= 'nameofcoll'><h3> {{name of collection}}</h3></div>
-<div> <br>
+        <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
+        <h1>FlashCards</h1><br><br><br><br>
+        <div class= 'home'><a href='#/home'>Home</a></div>
+        <div class= 'logout' ng- click='logout()' > Logout</div>
+        <hr color="#63cd40" >
+    </div><br>
 
 <div class= 'content'>
     <div class= 'card'>
         {{card}}
-        <button>Next</button>
+        <input type="image" src='static/images/next.jpg' alt='nextcard' height="80px" width="auto" class='next'>
     </div>
     <div class= 'sidebar'>
-        <button>Add</button><br><br>
-        <button>Remove Card</button><br><br>
-        <button>Edit</button><br><br>
-        <br><br>
-        <button>Collection</button>
+        <input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto"><br>
+        <input type="image" src='static/images/delete.jpg' alt='removecard' height="60px" width="auto" class='icon'><br>
+        <input type="image" src='static/images/edit.jpg' alt='edit' height="88px" width="auto"><br>
+
+        <br><br><br>
+        <input type="image" src='static/images/collection.jpg' alt='back_to_collection' height="80px" width="auto">
     </div>
 </div>

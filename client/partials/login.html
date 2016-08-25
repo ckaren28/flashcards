@@ -1,22 +1,27 @@
+<div class= 'topbanner'>
+    <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
+    <h1>FlashCards</h1><br><br><br><br>
+    <hr color="#63cd40" >
+</div>
 <div class= "registration">
     <h2>REGISTRATION</h2>
     <form ng-submit = "register()">
-        <br>{{errors.first_name.message}} <br>
-        Username: <input type="text" ng-model= "newUser.username"><br>
+        {{errors.first_name.message}} <br>
+        Username: <input type="text" ng-model= "newUser.username">
         <br>{{errors.email.message}}<br>
-        Email: <input type="email" ng-model= "newUser.email"><br>
+        Email: <input type="email" ng-model= "newUser.email">
         <br>{{errors.pw.message}}<br>
         Password: <input type = "password" ng-model="newUser.pw"><br>
         Confirm Password: <input type="password" ng-model='newUser.confirm_pw'><br>
-        <br>{{errors.birthday.message}}<br>
+
     </form>
 </div>
 
 <div class= "login">
     <h2> LOGIN </h2>
     <form ng-submit = "login()">
-        <br>{{errors.data}}<br>
-        Username: <input type="text" ng-model= "user.username"><br>
+        {{errors.data}}<br>
+        Username: <input type="text" ng-model= "user.username">
         <br>{{user.data}}<br>
         Password: <input type = "password" ng-model="user.pw"><br>
         <input type="submit" value="Login!"><br>

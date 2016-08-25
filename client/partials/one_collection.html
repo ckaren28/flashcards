@@ -1,15 +1,18 @@
 <div class= 'topbanner'>
-    <div class= 'logout'><a href="#/logout" style="color: lightblue" >Logout</a></div>
-    <div class='home'><a href="#/home" style="color:lightblue"> Home </a></div>
-<div><br>
+        <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
+        <h1>FlashCards</h1><br><br><br><br>
+        <div class= 'home'><a href='#/home'>Home</a></div>
+        <div class= 'logout' ng- click='logout()' > Logout</div>
+        <hr color="#63cd40" >
+    </div><br>
 
 <h2>{{Collection_name}}</h2>
 
-<div class= 'collection'>
+<div class= 'collection' layout='grid'>
     {{all cards}}
 </div><br><br>
 <div class= 'buttons'>
-    <button>Shuffle</button>
-    <button>Start Studying</button>
-    <button>Test</button>
+    <input type='image' src='static/images/shuffle.jpg' height='70px' width='auto' alt='shuffle' ng-click='shuffle()' class='icon'>
+    <a href="#/card/{{x._id}}"> <input type='image' src='static/images/start.jpg' height='70px' width= 'auto' alt= 'start_studying' class='icon'></a>
+    <input type='image' src='static/images/test.jpg' height='70px' width='auto' alt ='test' ng-click='test()' class='icon'>
 </div>

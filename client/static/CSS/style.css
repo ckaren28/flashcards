@@ -1,0 +1,158 @@
+*{
+    margin: 10px;
+    text-align:center;
+    font-family: 'Cambay', sans-serif;
+}
+form{
+    display: inline-block;
+    text-align: right;
+}
+
+h2{
+    color: white;
+    font-size: 35px;
+}
+h1{
+    color: #63cd40;
+    position: absolute;
+    left: 12%;
+    top: 5%;
+    font-size: 45px;
+    font-style: bold;
+}
+
+.login, .registration{
+    display: inline-block;
+    padding: 60px;
+    vertical-align: top;
+    border:1px solid #63cd40;
+    height: 400px;
+    width: 335px;
+    background-color: #63cd40;
+    opacity: 0.8;
+}
+.card, .sidebar{
+    display: inline-block;
+    verticle-align:top;
+}
+.logo{
+    position: absolute;
+    left: 7%;
+    top: 5%;
+}
+body{
+    background-image: url('wood.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .85
+}
+.topbanner{
+    background-image:url('linepaper.jpg');
+
+}
+
+.home, .logout{
+    display: inline-block;
+    position: absolute;
+    top: 2%;
+    color: #63cd40;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    .home{
+        right: 10%;
+}
+    a{
+        color: #63cd40;
+        text-decoration: none;
+    }
+    .logout{
+        right: 4%;
+    }
+.top_collections, .subjects{
+    background-image:url('linepaper1.jpg');
+    width: 65%;
+    height: 25%;
+    margin: 0 auto;
+    overflow: scroll;
+    direction: rtl;
+}
+
+.mycol, .icon{
+    border: 3px solid #131313;
+    border-radius: 50%
+}
+.sidebar{
+    background-color: #63cd40;
+    opacity: .8;
+    vertical-align: top;
+    width: 15%;
+    height: auto;
+    text-align: center;
+
+}
+.card,  .add_card{
+    border: 15px solid  #63cd40;
+    background-image:url('linepaper1.jpg');
+    height: 40%;
+    width: 50%;
+}
+.next{
+    position: absolute;
+    right: 35%;
+    bottom: 25%;
+}
+textarea{
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    color: black;
+}
+.submit{
+    background-color: #63cd40;
+    color: white;
+    width: 50%;
+    height: 20%;
+    font-size: 25px;
+}
+.addicon, .removeicon{
+    display: inline-block;
+    vertical-align: top;
+}
+.searchbar{
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    width: 15%;
+}
+.addcoll{
+    background-color: #63cd40;
+    color: white;
+    width: 30%;
+    height: 8%;
+    font-size: 25px;
+    opacity: .7;
+    position: absolute;
+    bottom: 8%;
+}
+.addreview{
+    background-image:url('linepaper1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 25px;
+}
+    .addreview form{
+        text-align: center;
+    }
+    .addreview textarea{
+        background-color: white;
+        border: 5px solid #63cd40;
+    }
+    .submitrev{
+        background-color: #63cd40;
+        color: white;
+        width: 25%;
+        height: 5%;
+        font-size: 18px;
+    }
