@@ -1,24 +1,26 @@
-app.controller('profileController', [$scope, $location, subjectFactory, $routeParams, function($scope, $location, subjectFactory, $routeParams){
-
-//this is where the data for top collections will be stored.
-$scope.topCollections = {};
-//show the netflix scroll... so this should show all top collections from Database.
-$scope.index = function(){
-  subjectFactory.index($routeParams.id, function(returned_Data){
-    $scope.topCollections = returned_Data.data
-    $location.url('/subject')
-  })
-}
-index()
+app.controller('subjectController', ['$scope', '$location', 'subjectFactory', '$routeParams', '$cookies' function($scope, $location, subjectFactory, $routeParams, $cookies){
 
 $scope.subject = {}
-//On a subject click (needs id)
-$scope.show_subject = function(){
-  subjectFactory.show_subject($routeParams.id, function(returned_data){
-    $scope.subject = returned_data
-    $location.url('/subject')
-  })
+$scope.user = {}
+
+if($cookies.getObject('user')){
+	$scope.user = $cookies.getObject('user')
 }
+else{
+	$location.url('/')
+}
+
+
+$scope.get_subject = function(){
+  subjectFactory.show_subject($routeParams.id, function(data){
+  	$scope.subject = data
+}
+$scope.remove_subject = function(){
+	subjectFactory.remove_subject($routeParams.id, function(){
+		location.url('/profile')
+	})
+}
+
 
 
 }]);
