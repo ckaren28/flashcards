@@ -28,13 +28,13 @@
 </div>
 
 <div id='dialog-form' title='Create a new Collection'>
-    <form class= 'from' action="#" id = 'addcollecttion'>
+    <form class= 'from' ng-submit='addCollection()' id = 'addcollecttion'>
         <fieldset>
-            <input type="text" placeholder="Name"><br>
-            <input type="text" placeholder="Add a Topic"><br>
-            <input type="text" placeholder="Description"><br>
-            <input type="radio" name='pubpriv' value='Public'>Public
-            <input type="radio" name='pubpriv' value='Private'>Private<br>
+            <input type="text" placeholder="Name" ng-model= 'newcollection.name'><br>
+            <input type="text" placeholder="Add a Topic" ng-model= 'newcollection.name'><br>
+            <input type="text" placeholder="Description" ng-model= 'newcollection.name'><br>
+            <input type="radio" name='pubpriv' value= true>Public
+            <input type="radio" name='pubpriv' value= false>Private<br>
             <input type="submit" name="add" value="Add">
         </fieldset>
     </form>
