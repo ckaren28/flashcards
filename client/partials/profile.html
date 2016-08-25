@@ -26,17 +26,17 @@
     <!-- <button class= 'addbut'>Add a Collection</button> -->
     <input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto">
     <input type="image" src='static/images/find1.jpg' alt='findcollection' height="78px" width="auto">
-    <input class='mycol' type="image" src='static/images/index.jpg' alt='mycollection' height="68px" width="auto">
+    <input class='mycol' type="image" src='static/images/index.jpg' alt='mycollection' height="68px" width="auto" >
     <!-- mycollection -->
 </div>
 
 <div id='dialog-form'>
-   <form class= 'from' ng-submit='add_collection()' >
+   <form class= 'form' ng-submit='add_collection()' >
        <fieldset>
            <legend>Add a Collection</legend>
            <input type="text" placeholder="Name" ng-model= 'newCollection.name'><br>
            <select ng-model = 'newCollection._subject'>
-               <option ng-repeat='subject in user._subjects' value= 'subject._id'>{{subject.name}}</option>
+               <option ng-repeat='subject in user._subjects' value= '{{subject._id}}'>{{subject.name}}</option>
            </select><br>
            <input type="text" placeholder="Description" ng-model= 'newCollection.description'><br>
            <input type="radio" name='pubpriv' ng-model = 'newCollection.public' value= true>Public
@@ -44,7 +44,7 @@
            <input type="submit" name="add" value="Add">
        </fieldset>
    </form>
-   <form class= 'from' ng-submit='add_subject()'>
+   <form class= 'form' ng-submit='add_subject()'>
        <fieldset>
            <legend>Add a Subject</legend>
            <input type="text" placeholder="Name" ng-model= 'newSubject.name'><br>

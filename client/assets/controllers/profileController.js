@@ -42,6 +42,7 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
       console.log('subject')
       $scope.newSubject._user = $scope.user._id;
       profileFactory.add_subject($scope.newSubject,function(){
+        $scope.newSubject = {}
         $scope.index();
       })
     }

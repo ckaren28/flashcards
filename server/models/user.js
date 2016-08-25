@@ -52,17 +52,6 @@ var UserSchema = new mongoose.Schema({
 	}]
 }, {timestamps:true})
 
-UserSchema.method('savenoval', function(next) {
-    var defaultValidate = this.validate;
-    this.validate = function(next) {next();};
-
-    var self = this;
-    this.save(function(err, doc, numberAffected) {
-        self.validate = defaultValidate;
-        next(err, doc, numberAffected);
-    });
-});
-
 UserSchema.pre('save', function(done){
 		this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
   		this.confirm_pw = '';
