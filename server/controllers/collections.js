@@ -60,7 +60,7 @@ function collectionController(){
 				res.json(err)
 			}
 			else{
-				Subject.findOne({_category: req.body._subject}, function(err, subject){
+				Subject.findOne({_id: req.body._subject}, function(err, subject){
 					if(err){
 						res.json(err)
 					}
@@ -71,14 +71,14 @@ function collectionController(){
 								res.json(err)
 							}
 							else{
-								User.findOne({_user: req.body._user}, function(err, user){
+								User.findOne({_id: req.body._user}, function(err, user){
 									if(err){
 										res.json(err)
 									}
 									else{
 										user._collections.push(collection)
 										user._topcollections.push(collection)
-										user.save(function(err){
+										user.save({validateBeforeSave: false }, function(err){
 											if(err){
 												res.json(err)
 											}

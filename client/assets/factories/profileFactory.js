@@ -9,6 +9,7 @@ app.factory('profileFactory', ['$http', function($http){
     		}
     //to add colleciton re route to page using id passed back
     		this.add_collection = function(collection, callback){
+    			console.log(collection)
     			$http.post('/addcollection', collection).then(function(return_data){
     				callback(return_data.data)
     			})
