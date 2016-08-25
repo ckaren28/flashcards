@@ -3,8 +3,18 @@ var Notecard = mongoose.model('Notecard')
 var Collection = mongoose.model('Collection')
 
 function notecardController(){
+	this.show_card = function(req, res){
+		Notecard.findOne({_id: req.params.id}, function(err, notecard){
+			if(err){
+				res.json(err)
+			}
+			else {
+				res.json(notecard)
+			}
+		})
+	}
 	this.pushcard = function(req,res){
-		var notecard = Notecard({question : req.body.question, answer : req.body.answer})
+		var notecard = Notecard({question : req.body.question, answer : req.body.answer, _collection:req.body._collection})
 		notecard.save(function(err){
 			if(err){
 				res.json(err)
@@ -53,7 +63,7 @@ function notecardController(){
 					}
 				})
 			}
-		})		
+		})
 	}
 	this.editcard = function(req,res){
 		Notecard.findOne({_id: req.params.id}, function(err,notecard){

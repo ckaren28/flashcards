@@ -43,11 +43,12 @@ module.exports = function(app){
     app.post('/pushcard', Notecard.pushcard)
     //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection, pass current index as req.body.index// will return notecard
     app.post('/pushcardatindex',Notecard.pushcardatindex)
+    app.get('/showcard/:id', Notecard.show_card)
     //need to pass notecard id as params id, question as req.body.question, answer as req.body.answer// will return notecardd
     app.post('/editcard/:id', Notecard.editcard)
     //need to pass notecard id as params, collection id as req.body._collection // will remove notecard from list will return nothing
     app.get('/removecard/:id', Notecard.removecard)
-    //need to pass review id as param id, 
+    //need to pass review id as param id,
     app.get('/getreview/:id', Review.getreview)
     //need to pass rating as req.body.rating, review as req.body.review, user id as req.body._user, collection id as req.body._collection// will return review
     app.post('/addreview', Review.addreview)
@@ -55,4 +56,5 @@ module.exports = function(app){
     app.post('/editreview/:id', Review.editreview)
     //need to pass review id as param id, pass user id as req.body._user, collection id as req.body._collection// will return nothing
     app.get('/deletereview/:id', Review.deletereview)
+
 };

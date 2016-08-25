@@ -15,7 +15,7 @@ function subjectController(){
 			})
 	}
 	this.getsubjects = function(req,res){
-		Subject.find({}, function(err,subjects){
+		Subject.find({}, function(err,subjects){ 
 			if(err){
 				res.json(err)
 			}

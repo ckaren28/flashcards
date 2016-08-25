@@ -18,9 +18,9 @@ var CollectionSchema = new mongoose.Schema({
 		type: Schema.Types.ObjectId, ref: 'Notecard'
 	}],
 	_subject: {
-		type: Schema.Types.ObjectId, ref: 'Category'
+		type: Schema.Types.ObjectId, ref: 'Subject'
 	},
-	_user: {
+	_user: { 
 		type: Schema.Types.ObjectId, ref: 'User'
 	},
 	_reviews: [{

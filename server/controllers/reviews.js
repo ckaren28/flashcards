@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var Review = mongoose.model('Review')
-
+ 
 function reviewController(){
 	this.getreview = function(req,res){
 		Review.findOne({_id: req.params._id})
@@ -112,7 +112,7 @@ function reviewController(){
 									}
 								})
 							}
-						})	
+						})
 					}
 				})
 			}

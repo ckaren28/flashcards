@@ -4,7 +4,7 @@ app.factory('collectionFactory', ['$http', function($http){
     ////////////////////// Start of profile page ////////////////////////////
 
     //from the collection controller, this is to go see my top collection
-    		this.show_collection = function(id){
+    		this.show_collection = function(id, callback){
     			$http.get('/getcollection/' + id).then(function(returned_data){
     				callback(returned_data.data)
     			})
@@ -36,10 +36,18 @@ app.factory('collectionFactory', ['$http', function($http){
     			})
     		}
     ///////////////////////// End of profile page ////////////////////////////
-
+            this.add_card = function(newCard, callback){
+                $http.post('/pushcard', newCard ).then(function(){
+                    callback();
+                })
+            }
+            this.show_card = function(id, callback){
+                $http.get('/showcard/' +id).then(function(data){
+                    callback(data.data)
+                })
+            }
 
 
 	}
 	return new collectionFactory()
 }])
-

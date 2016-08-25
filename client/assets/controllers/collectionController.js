@@ -8,15 +8,14 @@ $scope.collection = {};
   $scope.show_collection = function(){
     collectionFactory.show_collection($routeParams.id, function(returned_data){
       $scope.collection = returned_data
-      $location.url('/collections')
+      console.log($scope.collection);
     })
   }
-//On 'add a collection' click, a pop up should allow you to add a new collection that directs to collection page.
-  $scope.add_collection = function(){
-    collectionFactory.add_collection(function(){
-      $location.url('/collections')
-    })
-  }
+$scope.show_collection();
+
+    $scope.addcard = function(){
+        $location.url('/addcard/'+ $scope.collection._id)
+    }
 
   $scope.edit_collection = function(){
     collectionFactory.edit_collection($routeParams.id, function(){
@@ -34,6 +33,12 @@ $scope.collection = {};
     collectionFactory.get_collection_by_user($routeParams.id, function(){
       $location.url('/')
     })
+  }
+  console.log($scope.collection);
+
+  $scope.startcard = function(){
+      console.log($scope.collection);
+      $location.url('/card/'+ $scope.collection._notecards[0]._id)
   }
   ////////////// End -- Inside the profile page //////////////////
 

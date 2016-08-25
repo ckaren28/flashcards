@@ -8,7 +8,7 @@
 
 <div class= 'content'>
     <div class= 'card'>
-        {{card}}
+        {{card.question}}
         <input type="image" src='static/images/next.jpg' alt='nextcard' height="80px" width="auto" class='next'>
     </div>
     <div class= 'sidebar'>
@@ -17,6 +17,6 @@
         <input type="image" src='static/images/edit.jpg' alt='edit' height="88px" width="auto"><br>
 
         <br><br><br>
-        <input type="image" src='static/images/collection.jpg' alt='back_to_collection' height="80px" width="auto">
+        <input type="image" src='static/images/collection.jpg' alt='back_to_collection' height="80px" width="auto" ng-click='#/collection/{{_collection.id}}'>
     </div>
 </div>

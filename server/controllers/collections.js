@@ -54,7 +54,8 @@ function collectionController(){
 		})
 	}
 	this.addcollection = function(req,res){
-		var collection = Collection({name: req.body.name, public: req.body.public, description: req.body.description, _user:req.body._user, _category:req.body._category})
+		var collection = Collection({name: req.body.name, public: req.body.public, description: req.body.description, _user:req.body._user, _subject:req.body._subject})
+		console.log(collection);
 		collection.save(function(err){
 			if(err){
 				res.json(err)
@@ -83,7 +84,7 @@ function collectionController(){
 												res.json(err)
 											}
 											else{
-												res.send()
+												res.json(collection)
 											}
 										})
 									}
@@ -150,7 +151,7 @@ function collectionController(){
 					else{
 						res.json(collection)
 					}
-				}) 
+				})
 			}
 		})
 	}

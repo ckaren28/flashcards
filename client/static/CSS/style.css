@@ -166,3 +166,15 @@ textarea{
 .errmess{
     font-size: 12px;
 }
+.listcard{
+    background-color: white;
+    text-align: center;
+    width: 200px;
+    height: 150px;
+}
+.addcard{
+    border: 15px solid  #63cd40;
+    background-image:url('./../images/linepaper1.jpg');
+    height: 40%;
+    width: 100%;
+}
