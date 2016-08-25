@@ -1,4 +1,4 @@
-app.controller('profileController', ['$scope', '$location', 'collectionFactory', '$routeParams', '$cookies', function($scope, $location, collectionFactory, $routeParams, $cookies){
+app.controller('collectionController', ['$scope', '$location', 'collectionFactory', '$routeParams', '$cookies', function($scope, $location, collectionFactory, $routeParams, $cookies){
 
 /////////////////// Inside the profile page ///////////////////
 

@@ -1,4 +1,4 @@
-app.factory('collectionFactory', [$http, function($http){
+app.factory('collectionFactory', ['$http', function($http){
   function collectionFactory(){
 
     ////////////////////// Start of profile page ////////////////////////////
@@ -24,11 +24,6 @@ app.factory('collectionFactory', [$http, function($http){
         }
 
     //from collection controller, adding collection to db
-    		this.add_collection = function(){
-    			$http.post('/addcollection').then(function(){
-
-    			})
-    		}
 
     		this.edit_collection = function(id){
     			$http.post('/editcollection/' + id).then(function(){
@@ -46,6 +41,5 @@ app.factory('collectionFactory', [$http, function($http){
 
 	}
 	return new collectionFactory()
-  }])
+}])
 
-}]);

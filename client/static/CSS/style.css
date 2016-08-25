@@ -6,6 +6,7 @@
 form{
     display: inline-block;
     text-align: right;
+    vertical-align: top;
 }
 
 h2{
@@ -41,13 +42,13 @@ h1{
     top: 5%;
 }
 body{
-    background-image: url('wood.png');
+    background-image: url('./../images/wood.png');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: .85
 }
 .topbanner{
-    background-image:url('linepaper.jpg');
+    background-image: url('./../images/linepaper.jpg');
 
 }
 
@@ -60,18 +61,20 @@ body{
     font-weight: bold;
 }
 
-    .home{
-        right: 10%;
+.home{
+    right: 10%;
 }
-    a{
-        color: #63cd40;
-        text-decoration: none;
-    }
-    .logout{
-        right: 4%;
-    }
+
+a{
+    color: #63cd40;
+    text-decoration: none;
+}
+.logout{
+    right: 4%;
+}
+
 .top_collections, .subjects{
-    background-image:url('linepaper1.jpg');
+    background-image:url('./../images/linepaper1.jpg');
     width: 65%;
     height: 25%;
     margin: 0 auto;
@@ -94,7 +97,7 @@ body{
 }
 .card,  .add_card{
     border: 15px solid  #63cd40;
-    background-image:url('linepaper1.jpg');
+    background-image:url('./../images/linepaper1.jpg');
     height: 40%;
     width: 50%;
 }
@@ -136,23 +139,30 @@ textarea{
     position: absolute;
     bottom: 8%;
 }
+
 .addreview{
-    background-image:url('linepaper1.jpg');
+    background-image:url('./../images/linepaper1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 25px;
 }
-    .addreview form{
-        text-align: center;
-    }
-    .addreview textarea{
-        background-color: white;
-        border: 5px solid #63cd40;
-    }
-    .submitrev{
-        background-color: #63cd40;
-        color: white;
-        width: 25%;
-        height: 5%;
-        font-size: 18px;
-    }
+
+.addreview form{
+    text-align: center;
+}
+
+.addreview textarea{
+    background-color: white;
+    border: 5px solid #63cd40;
+}
+
+.submitrev{
+    background-color: #63cd40;
+    color: white;
+    width: 25%;
+    height: 5%;
+    font-size: 18px;
+}
+.errmess{
+    font-size: 12px;
+}

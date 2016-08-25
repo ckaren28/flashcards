@@ -20,7 +20,7 @@ var mongoose      = require('mongoose'),
 /*
 *  database information
 */
-    dbURI         = 'mongodb://localhost/nocards';
+    dbURI         = 'mongodb://localhost/notecards';
 /*
 * Connect to the database
 */

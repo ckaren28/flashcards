@@ -6,9 +6,9 @@ var UserSchema = new mongoose.Schema({
 	username : {
 		type: String,
 		required: [true, 'Your username is required'],
-		unique:true,
-		minlength: [4, 'Your username must be at least four characters']
-		maxlength: [20, 'Your username must be shorter than 21 characters' ]
+		unique:[true, "This username is already in use"],
+		minlength: [4, 'Your username must be at least four characters'],
+		maxlength: [20, 'Your username must be 20 characters or less' ],
 		trim: true,
 	},
 	email: {
@@ -43,7 +43,7 @@ var UserSchema = new mongoose.Schema({
 	}],
 	_collections: [{
 		type: Schema.Types.ObjectId, ref: 'Collection'
-	}]
+	}],
 	_topcollections: [{
 		type: Schema.Types.ObjectId, ref: 'Collection'
 	}],
@@ -52,9 +52,20 @@ var UserSchema = new mongoose.Schema({
 	}]
 }, {timestamps:true})
 
+UserSchema.method('savenoval', function(next) {
+    var defaultValidate = this.validate;
+    this.validate = function(next) {next();};
+
+    var self = this;
+    this.save(function(err, doc, numberAffected) {
+        self.validate = defaultValidate;
+        next(err, doc, numberAffected);
+    });
+});
+
 UserSchema.pre('save', function(done){
-  	this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
-  	this.confirm_pw = '';
+		this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
+  		this.confirm_pw = '';
   	done()
 });
 

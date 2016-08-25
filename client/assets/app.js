@@ -1,11 +1,11 @@
-var app = angular.module("myApp", ["ngRoute", "ngCookies"]);
+var app = angular.module("noteApp", ["ngRoute", "ngCookies"]);
 
 app.config(function($routeProvider){ $routeProvider
     .when('/', {
         templateUrl: "partials/login.html",
         controller: "loginController"
     })
-    .when('/profile', {
+    .when('/profile/:id', {
         templateUrl: 'partials/profile.html',
         controller: 'profileController'
     })
@@ -33,20 +33,7 @@ app.config(function($routeProvider){ $routeProvider
         templateUrl:'partials/test.html',
         controller: 'notecardController'
     })
-    .when('/' , {
-        templateUrl:'partials',
-        controller: ''
-    })
-    .when('/' , {
-        templateUrl:'partials',
-        controller: ''
-    })
-    .when('/', {
-        templateUrl:'partials',
-        controller: ''
-    })
     .otherwise({
         redirectTo: '/'
     });
-
 })

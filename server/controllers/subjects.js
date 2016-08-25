@@ -25,7 +25,8 @@ function subjectController(){
 		})
 	}
 	this.addsubject = function(req, res){
-		var subject = Subject({ name: req.body.name, description: req.body.description, _user : req.body._user})
+		console.log(req.body)
+		var subject = Subject({name: req.body.name, description: req.body.description, _user : req.body._user})
 		subject.save(function(err){
 			if(err){
 				res.json(err)
@@ -36,12 +37,16 @@ function subjectController(){
 						res.json(err)
 					}
 					else{
+						console.log(user)
 						user._subjects.push(subject)
-						user.save(function(err){
+						console.log(user)
+						user.savenoval(function(err){
 							if(err){
+								console.log('errr')
 								res.json(err)
 							}
 							else{
+								console.log('hello')
 								res.send()
 							}
 						})
