@@ -17,7 +17,7 @@ app.controller('loginController', ['$scope', 'userFactory', '$location', '$cooki
 				$scope.messages.push('The email address you have provided is already in use please login in or use a different email')
 			}
 			else{
-				$cookies.putObject('user', {first_name:data.first_name, last_name:data.last_name})
+				$cookies.putObject('user', {first_name : data.first_name, last_name : data.last_name})
 //once registration complete, send to profile page..
 				$location.url('/profile')
 			}
@@ -35,7 +35,7 @@ app.controller('loginController', ['$scope', 'userFactory', '$location', '$cooki
 				$scope.messages.push(data.data)
 			}
 			else{
-				$cookies.putObject('user', {first_name:data.first_name, last_name:data.last_name})
+				$cookies.putObject('user', {first_name : data.first_name, last_name : data.last_name})
 //after login, send to the profile page
 				$location.url('/profile')
 
