@@ -1,22 +1,25 @@
 <div class= 'topbanner'>
     <img src="/static/images/logo.png" width="60px" height="auto" class='logo'>
     <h1>FlashCards</h1><br><br><br><br>
-    <div class= 'logout' ng- click='logout()' > <b>Logout</b></div>
+    <div class= 'logout' ng-click='logout()'>Logout</div>
     <hr color="#63cd40" >
 </div>
 <h2>Top Collections </h2>
 <div class= 'top_collections'>
-    <div ng-click = 'show_collection()'>
+    <div ng-repeat="collection in user._topcollections" ng-click = 'show_collection(collection._id)'>
         <div class='collection'>
-            {{stuffs}}<br>
-            <div class='removeicon'><input type="image" src='static/images/remove.jpg' alt="remove_from_top" width="30px" height="auto" ng-click='remove_from_top()' ></div>
+            {{collection.name}}<br>
+            {{collection.description}}
+            <div class='removeicon'><input type="image" src='static/images/remove.jpg' alt="remove_from_top" width="30px" height="auto" ng-click='remove_from_top(collection._id)' ></div>
         </div>
     </div>
 </div><br><br>
 <h2>Subjects</h2>
-
 <div class= 'subjects'>
-    <div ng-click ='show_subject()'>{{subject}}</div>
+    <div ng-repeat='subject in user._subjects' ng-click ='show_subject(subject._id)'>
+        {{subject.name}}
+        {{subject.description}}
+    </div>
 </div><br><br>
 
 <div class = 'others'>
@@ -27,15 +30,26 @@
     <!-- mycollection -->
 </div>
 
-<div id='dialog-form' title='Create a new Collection'>
-    <form class= 'from' action="#" id = 'addcollecttion'>
-        <fieldset>
-            <input type="text" placeholder="Name"><br>
-            <input type="text" placeholder="Add a Topic"><br>
-            <input type="text" placeholder="Description"><br>
-            <input type="radio" name='pubpriv' value='Public'>Public
-            <input type="radio" name='pubpriv' value='Private'>Private<br>
-            <input type="submit" name="add" value="Add">
-        </fieldset>
-    </form>
+<div id='dialog-form'>
+   <form class= 'from' ng-submit='add_collection()' >
+       <fieldset>
+           <legend>Add a Collection</legend> 
+           <input type="text" placeholder="Name" ng-model= 'newCollection.name'><br>
+           <select ng-model = 'newCollection._subject'>
+               <option ng-repeat='subject in user._subjects' value= 'subject._id'>{{subject.name}}</option>
+           </select><br>
+           <input type="text" placeholder="Description" ng-model= 'newCollection.description'><br>
+           <input type="radio" name='pubpriv' ng-model = 'newCollection.public' value= true>Public
+           <input type="radio" name='pubpriv' ng-model = 'newCollection.public' value= false>Private<br>
+           <input type="submit" name="add" value="Add">
+       </fieldset>
+   </form>
+   <form class= 'from' ng-submit='add_subject()'>
+       <fieldset>
+           <legend>Add a Subject</legend>
+           <input type="text" placeholder="Name" ng-model= 'newSubject.name'><br>
+           <input type="text" placeholder="Description" ng-model= 'newSubject.description'><br>
+           <input type="submit" name="add" value="Add">
+       </fieldset>
+   </form>
 <div>
