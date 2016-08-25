@@ -6,24 +6,24 @@
 <div class= "registration">
     <h2>REGISTRATION</h2>
     <form ng-submit = "register()">
-        {{errors.first_name.message}} <br>
-        Username: <input type="text" ng-model= "newUser.username">
-        <br>{{errors.email.message}}<br>
-        Email: <input type="email" ng-model= "newUser.email">
-        <br>{{errors.pw.message}}<br>
-        Password: <input type = "password" ng-model="newUser.pw"><br>
+        <span class='errmess'>{{messages.duperr.message}}</span>
+        <span class="errmess">{{messages.username.message}}</span> 
+        Username: <input type="text" ng-model= "newUser.username"><br>
+        <span class="errmess">{{messages.email.message}}</span>
+        Email: <input type="email" ng-model= "newUser.email"><br>
+        <span class="errmess">{{messages.password.message}}</span>
+        Password: <input type = "password" ng-model="newUser.password"><br>
         Confirm Password: <input type="password" ng-model='newUser.confirm_pw'><br>
-
+        <input type="submit" value="Register!">
     </form>
 </div>
 
 <div class= "login">
     <h2> LOGIN </h2>
     <form ng-submit = "login()">
-        {{errors.data}}<br>
-        Username: <input type="text" ng-model= "user.username">
-        <br>{{user.data}}<br>
-        Password: <input type = "password" ng-model="user.pw"><br>
+        {{loginmessages.error}}
+        Username: <input type="text" ng-model= "loginUser.username"><br>
+        Password: <input type = "password" ng-model="loginUser.password"><br>
         <input type="submit" value="Login!"><br>
     </form>
 

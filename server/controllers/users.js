@@ -4,7 +4,7 @@ var User = mongoose.model('User')
 
 function usersController(){
 	this.login = function(req,res){
-		User.findOne({email: req.body.email}, function(err, user){
+		User.findOne({username: req.body.username}, function(err, user){
 			if(err){
 				res.json(err)
 			}
@@ -35,7 +35,7 @@ function usersController(){
 		})
 	}
 	this.getuser = function(req,res){
-		User.findOne({_id: req.body._id})
+		User.findOne({_id: req.params.id})
 			.populate('_topcollections _subjects').exec(function(err, user){
 				if(err){
 					res.json(err)
@@ -43,7 +43,7 @@ function usersController(){
 				else{
 					res.json(user)
 				}
-			}
+			})
 	}
 }
 module.exports = new usersController()

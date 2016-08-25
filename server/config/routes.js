@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var User = require('./../controllers/users.js');
 var Collection = require('./../controllers/collections.js')
-var Subject = require('./../controllers/subject.js');
+var Subject = require('./../controllers/subjects.js');
 var Notecard = require('./../controllers/notecards.js');
 var Review = require('./../controllers/reviews.js')
 
@@ -9,10 +9,10 @@ var Review = require('./../controllers/reviews.js')
 module.exports = function(app){
 	//need to pass username as req.body.username, email as req.body.email, password as req.body.password, confirm_pw as req.body.confirm_pw // will get user back
     app.post('/register', User.register);
-    //need to pass email as req.body.email // will get user back
+    //need to pass username as req.body.username // will get user back
     app.post('/login', User.login);
     //need to pass user id as req.body._id, get id from cookied user // will get user topcollections, subject back
-    app.get('/getuser', User.getuser)
+    app.get('/getuser/:id', User.getuser)
     //need to pass collection id as param id // will get collection back with reviews, notecards and subject info
     app.get('/getcollection/:id', Collection.getcollection)
     //need to pass subject id as param sub // will get collections back based on subject
@@ -28,7 +28,7 @@ module.exports = function(app){
     //need to pass userid of cookied user as req.body._user // will remove colleciton from topcolleciton// will return nothing
     app.get('/removecollectionfromtop', Collection.removecollectionfromtop)
     //need to pass collection id as param id, need to pass name as req.body.name, description as req.body.description, public as req.body.public // will return edited collection
-    app.post('/editcollection/:id', Collection.editdescription)
+    app.post('/editcollection/:id', Collection.editcollection)
     //need to pass subect id as param id // will  return subect with populated user and collecitons info
     app.get('/getsubject/:id', Subject.getsubject)
     //no need to pass anything // will return all subjects
