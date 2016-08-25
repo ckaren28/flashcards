@@ -10,10 +10,10 @@ else{
 	$location.url('/')
 }
 
+
 $scope.get_subject = function(){
   subjectFactory.show_subject($routeParams.id, function(data){
   	$scope.subject = data
-  })
 }
 $scope.remove_subject = function(){
 	subjectFactory.remove_subject($routeParams.id, function(){
