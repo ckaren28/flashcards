@@ -8,22 +8,39 @@ function collectionFactory(){
 			callback(returned_data.data)
 		})
 	}
+
 	this.show_user_collections = function(id, callback){
 		$http.get('/getcollectionsbyuser/' + id).then(function(returned_data){
 			callback(returned_data.data)
 		})
 	}
 
-
-    this.shuffle = function(id,callback){
-        $http.get('/shufflecollection/' + id).then(function(){
-            callback()
+    this.add_collection = function(collection, callback){
+        $http.post('/addcollection', collection).then(function(returned_data){
+            callback(returned_data.data)
         })
     }
-    this.removecardfromcard = function(card,callback){
-        $http.post('/removecard/' + card._id, card).then(function(){
-            callback()
+
+    this.add_to_top = function(body,callback){
+        $http.post('/addtotopcollections', body).then(callback())
+    }
+
+    this.delete_collection = function(body,id,callback){
+        $http.post('/removecollection/' + id, body).then(callback())
+    }
+    
+    this.index = function(id,callback){
+        $http.get('/getuser/' + id).then(function(return_data){
+            callback(return_data.data)
         })
+    }
+
+    this.shuffle = function(id,callback){
+        $http.get('/shufflecollection/' + id).then(callback())
+    }
+
+    this.removecardfromcard = function(card,callback){
+        $http.post('/removecard/' + card._id, card).then(callback())
     }
 
     this.nextcard = function(collid,cardid,callback){
@@ -31,42 +48,13 @@ function collectionFactory(){
             callback(data.data)
         })
     }
+
     this.editcard= function(editedcard, callback){
-        $http.post('/editcard/'+editedcard._id, editedcard).then(function(){
-            callback()
-        })
+        $http.post('/editcard/'+editedcard._id, editedcard).then(callback())
     }
 
-    //from collection controller, shows all collections created by user
-        this.get_collection_by_user = function(id){
-          $http.get('/getcollectionsbyuser/' + id).then(function(){
-
-          })
-        }
-
-        this.addtotopcollections = function(){
-          $http.get('/addtotopcollections').then(function(){
-
-          })
-        }
-
-    //from collection controller, adding collection to db
-
-    		this.edit_collection = function(id){
-    			$http.post('/editcollection/' + id).then(function(){
-
-    			})
-    		}
-    		this.remove_collection = function(){
-    			$http.get('/removecollection' + id).then(function(){
-
-    			})
-    		}
-    ///////////////////////// End of profile page ////////////////////////////
     this.add_card = function(newCard, callback){
-        $http.post('/pushcard', newCard ).then(function(){
-            callback();
-        })
+        $http.post('/pushcard', newCard ).then(callback())
     }
 
     this.show_card = function(id, callback){

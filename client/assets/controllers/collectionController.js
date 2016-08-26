@@ -3,6 +3,7 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
   $scope.collection = {};
   $scope.collections = [];
   $scope.user = {};
+
   if($cookies.getObject('user')){
     $scope.user = $cookies.getObject('user')
   }
@@ -10,16 +11,51 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
     $location.url('/')
   }
 
+  $scope.index = function(){
+      collectionFactory.index($scope.user._id, function(returned_Data){
+        $scope.user = returned_Data
+      })
+  }
+
   $scope.show_collection = function(){
     collectionFactory.show_collection($routeParams.id, function(returned_data){
       $scope.collection = returned_data
     })
   }
+
   $scope.show_user_collections = function() {
     collectionFactory.show_user_collections($scope.user._id, function(return_data){
         $scope.collections = return_data
     })
+  }
 
+  $scope.add_collection = function(){
+    $scope.newCollection._user = $scope.user._id;
+    collectionFactory.add_collection($scope.newCollection, function(return_data){
+        $location.url('/collection/' + return_data._id)
+    })
+  }
+
+  $scope.add_to_top = function(id){
+    for(var i = 0; i < $scope.user._topcollections.length;i++){
+      if($scope.user._topcollections[i]._id == id){
+        return;
+      }
+    }
+    $scope.body = {}
+    $scope.body._user = $scope.user._id
+    $scope.body._collection = id
+    collectionFactory.add_to_top($scope.body,function(){
+      $location.url('/profile/' + $scope.user._id)
+    })
+  }
+
+  $scope.delete_collection = function(id){
+    $scope.body = {}
+    $scope.body._user = $scope.user._id
+    collectionFactory.delete_collection($scope.body,id, function(){
+        $scope.show_user_collections()
+    })
   }
 
   $scope.addcard = function(){
@@ -40,29 +76,14 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
 
     })
   }
+  $scope.logout = function(){
+      $cookies.remove('user')
+      $location.url('/')
+  }
 
+  $scope.index();
   $scope.show_collection();
   $scope.show_user_collections();
-
-
-  $scope.edit_collection = function(){
-    collectionFactory.edit_collection($routeParams.id, function(){
-      //
-    })
-  }
-  $scope.remove_collection = function(){
-    collectionFactory.remove_collection($routeParams.id, function(){
-      //
-    })
-  }
-
-//On see my collections click, show all collections created by user
-  $scope.get_collection_by_user = function(){
-    collectionFactory.get_collection_by_user($routeParams.id, function(){
-      $location.url('/')
-    })
-  }
-
 
 
 

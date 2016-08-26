@@ -6,15 +6,14 @@
     <hr color="#63cd40" >
 </div><br>
 
-<input type="search" placeholder="Search for a Collection" class='searchbar'>
+<input type="search" placeholder="Search for a Collection" ng-model="search" class='searchbar'>
 
 <h2> My Collections </h2>
 <div class= 'all_users_collections' >
-    <div class= 'collection' ng-repeat= 'collection in collections'>
+    <div class= 'collection' ng-repeat= 'collection in collections| filter: search'>
         {{collection.name}}<br>
-        <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top()'>
-        <input type="image" src='static/images/remove.jpg' alt="delete" width="30px" height="auto" ng-click='delete()'>
-        <input type="image" src='static/images/edit.jpg' alt="edit" width="30px" height="auto" ng-click='edit_collection()'>
+        <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top(collection._id)'>
+        <input type="image" src='static/images/remove.jpg' alt="delete" width="30px" height="auto" ng-click='delete_collection(collection._id)'>
     </div>
 </div><br><br>
 <div id='dialog-form'>

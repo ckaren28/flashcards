@@ -42,7 +42,7 @@ function collectionController(){
 		})
 	}
 	this.addtotopcollections = function(req,res){
-		User.findOne({_user: req.body._user}, function(err,user){
+		User.findOne({_id: req.body._user}, function(err,user){
 			user._topcollections.push(req.body._collection)
 			user.save({validateBeforeSave: false },function(err){
 				if(err){
