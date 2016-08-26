@@ -15,11 +15,20 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
             $location.url('/collection/'+ $routeParams.id)
         })
     }
+    $scope.swap = function(){
+        if($scope.card.question == $scope.display){
+            $scope.display = $scope.card.answer 
+        }
+        else{
+            $scope.display = $scope.card.question
+        }
+    }
 
     $scope.show_card = function(){
         collectionFactory.show_card($routeParams.id, function(data){
             $scope.card = data
             $scope.editedCard = data
+            $scope.display = $scope.card.question
         })
     }
 
@@ -35,7 +44,6 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
         })
     }
     $scope.nextcard = function(){
-        console.log($scope.card._collection)
         collectionFactory.nextcard($scope.card._collection,$scope.card._id,function(data){
             if(data.data){
                 $location.url('/card/' + data.data)
@@ -49,7 +57,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
         $location.url('/collection/' + $scope.card._collection)
     }
     $scope.removecard = function(){
-        collectionFactory.removecardfromcard($scope.card._id, function(){
+        collectionFactory.removecardfromcard($scope.card, function(){
             $location.url('/collection/' + $scope.card._collection)
         })
     }

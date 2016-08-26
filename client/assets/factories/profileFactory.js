@@ -9,14 +9,12 @@ app.factory('profileFactory', ['$http', function($http){
     		}
     //to add colleciton re route to page using id passed back
     		this.add_collection = function(collection, callback){
-    			console.log(collection)
     			$http.post('/addcollection', collection).then(function(return_data){
     				callback(return_data.data)
     			})
     		}
    	//to add subject callback calls index again
     		this.add_subject = function(subject, callback){
-    			console.log(subject)
     			$http.post('/addsubject', subject).then(function(return_data){
     				console.log(return_data)
     				callback()

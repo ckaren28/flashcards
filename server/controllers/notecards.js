@@ -57,7 +57,7 @@ function notecardController(){
 		})
 	}
 	this.pushcardatindex = function(req,res){
-		var notecard = Notecard({question : req.body.question, answer : req.body.answer})
+		var notecard = Notecard({question : req.body.question, answer : req.body.answer, _collection: req.body._collection})
 		notecard.save(function(err){
 			if(err){
 				res.json(err)
@@ -107,10 +107,30 @@ function notecardController(){
 				res.json(err)
 			}
 			else{
-				res.send()
-				}
-			})
-		}
+				Collection.findOne({_id: req.body._collection}, function(err,collection){
+					if(err){
+						res.json(err)
+					}
+					else{
+						for(var i=0; i<collection._notecards.length; i++){
+							if(collection._notecards[i] == req.params.id){
+								collection._notecards.splice(i,1)
+								break;
+							}
+						}
+						collection.save(function(err){
+							if(err){
+								res.json(err)
+							}
+							else{
+								res.send()
+							}
+						})
+					}
+				})
+			}
+		})
+	}
 	
 }
 
