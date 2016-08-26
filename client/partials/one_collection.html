@@ -8,10 +8,11 @@
 
 <h2>{{collection.name}}</h2>
 
-<div class= 'listcard' layout='grid' ng-repeat='card in collection._notecards' ng-click='show_card(card._id)'>
+<div>
+<div class= 'listcard'  ng-repeat='card in collection._notecards' ng-click='show_card(card._id)'>
     {{card.question}}
 </div><br><br>
-
+</div>
 
 <div class= 'buttons'>
     <input type='image' src='static/images/add.png' height='70px' width='auto' alt='addcard' ng-click='addcard()' class='icon'>

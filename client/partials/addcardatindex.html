@@ -2,20 +2,20 @@
     <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
     <h1>FlashCards</h1><br><br><br><br>
     <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
-    <div class= 'logout' ng-click='logout()'> Logout</div>
+    <div class= 'logout' ng-click='logout()' > Logout</div>
     <hr color="#63cd40" >
 </div><br>
 
-<h2>Create a Card</h2>
+<h2>Create Card</h2>
 <h4>Front</h4>
 
-    <form ng-submit='add_card()'>
-        <div class= 'addcard'> <textarea rows="6" cols="36" ng-model= 'newCard.question'></textarea><br><br>
+    <form ng-submit='add_card_index()'>
+        <div class= 'addcard'> <textarea rows="6" cols="36" ng-model= 'newCardIndex.question'></textarea><br><br>
         </div>
 
         <h4>Back</h4>
         <div class= 'addcard'>
-            <textarea rows="7" cols="36" ng-model= 'newCard.answer'></textarea><br><br>
+            <textarea rows="7" cols="36" ng-model= 'newCardIndex.answer'></textarea><br><br>
             <input type="submit" name="submit" value="Done" class = 'submit'>
         </div>
     </form>

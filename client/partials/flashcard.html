@@ -8,11 +8,12 @@
 
 <div class= 'content'>
     <div ng-click="swap()" class= 'card'>
+        <input type="image" src='static/images/back.png' alt='back' height="80px" width="auto" class='back' ng-click='lastcard()'>
         {{display}}
-        <input type="image" src='static/images/next.jpg' alt='nextcard' height="80px" width="auto" class='next' ng-click='nextcard()'>
+        <input type="image" src='static/images/next.png' alt='nextcard' height="80px" width="auto" class='next' ng-click='nextcard()'>
     </div>
     <div class= 'sidebar'>
-        <input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto" ng-click="addcardtoindex()"><br>
+        <a href='#/addcard/{{card._collection}}/{{card._id}}'><input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto"></a><br>
         <input type="image" src='static/images/delete.jpg' alt='removecard' height="60px" width="auto" class='icon' ng-click='removecard()'><br>
         <input type="image" src='static/images/edit.jpg' alt='edit' height="88px" width="auto" ng-click='editcard()'><br>
 

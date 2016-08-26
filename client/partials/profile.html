@@ -6,12 +6,10 @@
 </div>
 <h2>Top Collections </h2>
 <div class= 'top_collections'>
-    <div ng-repeat="collection in user._topcollections" >
-        <div class='collection'>
-            <div class='title' ng-click = 'show_collection(collection._id)'>{{collection.name}}</div><br>
-            <div class='desc'>{{collection.description}}</div><br>
+    <div ng-repeat="collection in user._topcollections" class='collection'>
+            <div class='title' ng-click = 'show_collection(collection._id)'>{{collection.name}}</div>
+            <div class='desc'>{{collection.description}}</div>
             <div class='removeicon'><input type="image" src='static/images/remove.jpg' alt="remove_from_top" width="30px" height="auto" ng-click='remove_from_top(collection._id)'></div>
-        </div>
     </div>
 </div><br><br>
 <h2>Subjects</h2>

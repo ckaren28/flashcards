@@ -17,16 +17,34 @@ $scope.get_subject = function(){
 
   })
 }
-$scope.get_subject();
-
-$scope.remove_subject = function(){
-	subjectFactory.remove_subject($routeParams.id, function(){
-		$location.url('/profile')
+$scope.index = function(){
+	subjectFactory.index($scope.user._id, function(returned_Data){
+	  $scope.user = returned_Data
 	})
 }
-$scope.view_collection = function(id){
-		$location.url('/collection/' + id)
+
+$scope.add_to_top = function(id){
+	for(var i = 0; i < $scope.user._topcollections.length;i++){
+      if($scope.user._topcollections[i]._id == id){
+        return;
+      }
+    }
+    $scope.body = {}
+    $scope.body._user = $scope.user._id
+    $scope.body._collection = id
+    subjectFactory.add_to_top($scope.body,function(){
+      $location.url('/profile/' + $scope.user._id)
+    })
 }
+$scope.get_subject();
+$scope.index();
+
+
+// $scope.remove_subject = function(){
+//
+// }
+
+
 
 
 

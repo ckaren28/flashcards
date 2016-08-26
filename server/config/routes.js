@@ -43,6 +43,7 @@ module.exports = function(app){
 
     app.get('/nextcard/:collid/:cardid', Notecard.nextcard)
     //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection // will return notecard
+    app.get('/lastcard/:collid/:cardid', Notecard.lastcard)
     app.post('/pushcard', Notecard.pushcard)
     //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection, pass current index as req.body.index// will return notecard
     app.post('/pushcardatindex',Notecard.pushcardatindex)

@@ -11,7 +11,7 @@
 <h2> My Collections </h2>
 <div class= 'all_users_collections' >
     <div class= 'collection' ng-repeat= 'collection in collections| filter: search'>
-        {{collection.name}}<br>
+        <a href='#/collection/{{collection._id}}'>{{collection.name}}</a><br>
         <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top(collection._id)'>
         <input type="image" src='static/images/remove.jpg' alt="delete" width="30px" height="auto" ng-click='delete_collection(collection._id)'>
     </div>

@@ -5,13 +5,13 @@
         <div class= 'logout' ng- click='logout()' > Logout</div>
         <hr color="#63cd40" >
     </div><br>
-    <input type="search" placeholder="Search for a Collection" class='searchbar'>
+    <input type="search" placeholder="Search for a Collection" class='searchbar' ng-model= 'search'>
 
 
 <h2> All Collections in {{subject.name}} </h2>
 <div class= 'allsubjects'>
-    <div class= 'collection1' ng-repeat="collection in subject._collections" ng-click='view_collection(collection._id)' >
-        {{collection.name}}<br>
-        <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top()'>
+    <div class= 'collection1' ng-repeat="collection in subject._collections | filter: search" >
+        <a href="#/collection/{{collection._id}}">{{collection.name}}</a><br>
+        <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top(collection._id)'>
     </div><br>
 </div>

@@ -28,7 +28,7 @@ function collectionFactory(){
     this.delete_collection = function(body,id,callback){
         $http.post('/removecollection/' + id, body).then(callback())
     }
-    
+
     this.index = function(id,callback){
         $http.get('/getuser/' + id).then(function(return_data){
             callback(return_data.data)
@@ -48,6 +48,11 @@ function collectionFactory(){
             callback(data.data)
         })
     }
+	this.lastcard = function(collid, cardid, callback){
+		$http.get('/lastcard/'+collid+'/'+cardid).then(function(data){
+			callback(data.data)
+		})
+	}
 
     this.editcard= function(editedcard, callback){
         $http.post('/editcard/'+editedcard._id, editedcard).then(callback())
@@ -56,6 +61,11 @@ function collectionFactory(){
     this.add_card = function(newCard, callback){
         $http.post('/pushcard', newCard ).then(callback())
     }
+	this.add_card_index = function(newCard, callback){
+		$http.post('/pushcardatindex', newCard).then(function(data){
+			callback(data.data)
+		})
+	}
 
     this.show_card = function(id, callback){
         $http.get('/showcard/' +id).then(function(data){

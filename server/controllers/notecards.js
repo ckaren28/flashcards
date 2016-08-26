@@ -20,6 +20,23 @@ function notecardController(){
 			}
 		})
 	}
+	this.lastcard = function(req,res){
+		Collection.findOne({_id: req.params.collid}, function(err,collection){
+			if(err){
+				res.json(err)
+			}
+			else{
+				for(var i = 0; i < collection._notecards.length; i++){
+					if(collection._notecards[i] == req.params.cardid && i == 0){
+						res.json({data:null})
+					}
+					else if(collection._notecards[i] == req.params.cardid){
+						res.json({data:collection._notecards[i-1]})
+					}
+				}
+			}
+		})
+	}
 	this.show_card = function(req, res){
 		Notecard.findOne({_id: req.params.id}, function(err, notecard){
 			if(err){
@@ -57,6 +74,7 @@ function notecardController(){
 		})
 	}
 	this.pushcardatindex = function(req,res){
+		console.log(req.body);
 		var notecard = Notecard({question : req.body.question, answer : req.body.answer, _collection: req.body._collection})
 		notecard.save(function(err){
 			if(err){
@@ -68,7 +86,13 @@ function notecardController(){
 						res.json(err)
 					}
 					else{
-						collection._notecards.splice(req.body.index,0,notecard)
+						for (var i = 0; i < collection._notecards.length; i++){
+							if(collection._notecards[i] == req.body.index){
+								collection._notecards.splice(i+1,0,notecard)
+								break;
+							}
+						}
+						collection.markModified('_notecards');
 						collection.save(function(err){
 							if(err){
 								res.json(err)
@@ -131,7 +155,7 @@ function notecardController(){
 			}
 		})
 	}
-	
+
 }
 
 module.exports = new notecardController()

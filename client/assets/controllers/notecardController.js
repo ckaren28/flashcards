@@ -15,9 +15,19 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
             $location.url('/collection/'+ $routeParams.id)
         })
     }
+    $scope.add_card_index = function(){
+        $scope.newCardIndex.index = $routeParams.cardid
+        $scope.newCardIndex._collection = $routeParams.colid ;   
+        collectionFactory.add_card_index($scope.newCardIndex, function(data){
+            $location.url('/card/'+ data._id)
+        })
+
+
+    }
+
     $scope.swap = function(){
         if($scope.card.question == $scope.display){
-            $scope.display = $scope.card.answer 
+            $scope.display = $scope.card.answer
         }
         else{
             $scope.display = $scope.card.question
@@ -32,9 +42,6 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
         })
     }
 
-    $scope.addcardatindex = function(){
-        
-    }
     $scope.editcard = function(){
         $location.url('/editcard/'+$scope.card._id)
     }
@@ -45,6 +52,16 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
     }
     $scope.nextcard = function(){
         collectionFactory.nextcard($scope.card._collection,$scope.card._id,function(data){
+            if(data.data){
+                $location.url('/card/' + data.data)
+            }
+            else{
+                $location.url('/collection/' + $scope.card._collection)
+            }
+        })
+    }
+    $scope.lastcard = function(){
+        collectionFactory.lastcard($scope.card._collection,$scope.card._id,function(data){
             if(data.data){
                 $location.url('/card/' + data.data)
             }

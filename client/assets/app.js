@@ -41,10 +41,10 @@ app.config(function($routeProvider){ $routeProvider
         templateUrl: 'partials/add_card.html',
         controller: 'notecardController'
     })
-    // .when('/mycollection/:id', {
-    //     templateUrl: 'partials/all_user_collections.html',
-    //     controller: 'collectionController'
-    // })
+    .when('/addcard/:colid/:cardid',{
+        templateUrl: 'partials/addcardatindex.html',
+        controller: 'notecardController'
+    })
     .otherwise({
         redirectTo: '/'
     });
