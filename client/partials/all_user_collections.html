@@ -1,8 +1,8 @@
 <div class= 'topbanner'>
     <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
     <h1>FlashCards</h1><br><br><br><br>
-    <div class= 'home'><a href='#/home'>Home</a></div>
-    <div class= 'logout' ng- click='logout()' > Logout</div>
+    <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
+    <div class= 'logout' ng-click='logout()' > Logout</div>
     <hr color="#63cd40" >
 </div><br>
 
@@ -10,11 +10,25 @@
 
 <h2> My Collections </h2>
 <div class= 'all_users_collections' >
-    <div class= 'collection'>
-        {{stuff}}<br>
+    <div class= 'collection' ng-repeat= 'collection in collections'>
+        {{collection.name}}<br>
         <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top()'>
-        <input type="image" src='static/images/remove.jpg' alt="delete" width="30px" height="auto" ng-click='add_to_top()'>
-        <input type="image" src='static/images/edit.jpg' alt="edit" width="30px" height="auto" ng-click='add_to_top()'>
+        <input type="image" src='static/images/remove.jpg' alt="delete" width="30px" height="auto" ng-click='delete()'>
+        <input type="image" src='static/images/edit.jpg' alt="edit" width="30px" height="auto" ng-click='edit_collection()'>
     </div>
 </div><br><br>
-<input type='submit' name='add_a_collection' value= 'Add a collection' class= 'addcoll'>
+<div id='dialog-form'>
+   <form class= 'form' ng-submit='add_collection()' >
+       <fieldset>
+           <legend>Add a Collection</legend>
+           <input type="text" placeholder="Name" ng-model= 'newCollection.name'><br>
+           <select ng-model = 'newCollection._subject'>
+               <option ng-repeat='subject in user._subjects' value= '{{subject._id}}'>{{subject.name}}</option>
+           </select><br>
+           <input type="text" placeholder="Description" ng-model= 'newCollection.description'><br>
+           <input type="radio" name='pubpriv' ng-model = 'newCollection.public' value= true>Public
+           <input type="radio" name='pubpriv' ng-model = 'newCollection.public' value= false>Private<br>
+           <input type="submit" name="add" value="Add">
+       </fieldset>
+   </form>
+</div>

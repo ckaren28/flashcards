@@ -21,15 +21,16 @@ function collectionController(){
 			})
 	}
 	this.getcollectionsbysub = function(req,res){
-		Collection.find({_subject : req.params.sub}, function(err, collections){
-			if(err){
-				res.json(err)
-			}
-			else{
-				res.json(collections)
-			}
-		})
-	}
+		Subject.findOne({_id : req.params.sub})
+			.populate('_collections').exec(function(err, subject){
+				if(err){
+					res.json(err)
+				}
+				else{
+					res.json(subject)
+				}
+			})
+		}
 	this.getcollectionsbyuser = function(req,res){
 		Collection.find({_user : req.params.user}, function(err, collections){
 			if(err){
@@ -43,7 +44,7 @@ function collectionController(){
 	this.addtotopcollections = function(req,res){
 		User.findOne({_user: req.body._user}, function(err,user){
 			user._topcollections.push(req.body._collection)
-			user.save(function(err){
+			user.save({validateBeforeSave: false },function(err){
 				if(err){
 					res.json(err)
 				}
@@ -109,11 +110,18 @@ function collectionController(){
 					else{
 						for(var i=0; i<user._collections.length; i++){
 							if(user._collections[i] == req.body._collection){
-								user._collection.splice(i,1)
+								user._collections.splice(i,1)
 								break;
 							}
 						}
-						res.send()
+						user.save({validateBeforeSave: false },function(err){
+							if(err){
+								res.json(err)
+							}
+							else {
+								res.send()
+							}
+						})
 					}
 				})
 			}
@@ -127,11 +135,18 @@ function collectionController(){
 			else{
 				for(var i=0; i<user._topcollections.length; i++){
 					if(user._topcollections[i] == req.body._collection){
-						user._topcollection.splice(i,1)
+						user._topcollections.splice(i,1)
 						break;
 					}
 				}
-				res.send()
+				user.save({validateBeforeSave: false }, function(err){
+					if(err){
+						res.json(err)
+					}
+					else {
+						res.send()
+					}
+				})
 			}
 		})
 	}
@@ -162,7 +177,7 @@ function collectionController(){
 				var repcardid = collection._notecards[repindex]
 				var icardid = collection._notecards[i]
 				var temp = repcardid
-				collection._notecards.set(i,temp) 
+				collection._notecards.set(i,temp)
 				collection._notecards.set(repindex,icardid)
 			}
 			collection.save(function(err){

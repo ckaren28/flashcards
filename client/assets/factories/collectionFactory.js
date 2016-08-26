@@ -8,6 +8,13 @@ function collectionFactory(){
 			callback(returned_data.data)
 		})
 	}
+	this.show_user_collections = function(id, callback){
+		$http.get('/getcollectionsbyuser/' + id).then(function(returned_data){
+			callback(returned_data.data)
+		})
+	}
+
+
     this.shuffle = function(id,callback){
         $http.get('/shufflecollection/' + id).then(function(){
             callback()

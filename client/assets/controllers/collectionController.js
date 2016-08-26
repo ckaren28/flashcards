@@ -1,6 +1,7 @@
 app.controller('collectionController', ['$scope', '$location', 'collectionFactory', '$routeParams', '$cookies', function($scope, $location, collectionFactory, $routeParams, $cookies){
 
   $scope.collection = {};
+  $scope.collections = [];
   $scope.user = {};
   if($cookies.getObject('user')){
     $scope.user = $cookies.getObject('user')
@@ -13,6 +14,12 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
     collectionFactory.show_collection($routeParams.id, function(returned_data){
       $scope.collection = returned_data
     })
+  }
+  $scope.show_user_collections = function() {
+    collectionFactory.show_user_collections($scope.user._id, function(return_data){
+        $scope.collections = return_data
+    })
+
   }
 
   $scope.addcard = function(){
@@ -35,7 +42,7 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
   }
 
   $scope.show_collection();
-
+  $scope.show_user_collections();
 
 
   $scope.edit_collection = function(){

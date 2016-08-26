@@ -26,7 +26,7 @@ module.exports = function(app){
     //need to pass collection id as req.params.id, userid as req.body._user // will remove collection completely from database// will return nothing
     app.get('/removecollection/:id', Collection.removecollection)
     //need to pass userid of cookied user as req.body._user // will remove colleciton from topcolleciton// will return nothing
-    app.get('/removecollectionfromtop', Collection.removecollectionfromtop)
+    app.post('/removecollectionfromtop', Collection.removecollectionfromtop)
     //need to pass collection id as param id, need to pass name as req.body.name, description as req.body.description, public as req.body.public // will return edited collection
     app.post('/editcollection/:id', Collection.editcollection)
     //need to pass subect id as param id // will  return subect with populated user and collecitons info

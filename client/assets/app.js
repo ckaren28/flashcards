@@ -13,9 +13,9 @@ app.config(function($routeProvider){ $routeProvider
         templateUrl:'partials/one_collection.html',
         controller: 'collectionController'
     })
-    .when('/subject/:id ', {
+    .when('/subject/:id', {
         templateUrl:'partials/subjects.html',
-        controller: 'subjectsController'
+        controller: 'subjectController'
     })
     .when('/find_collection' , {
         templateUrl:'partials/find.html',

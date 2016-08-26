@@ -20,7 +20,9 @@ app.factory('profileFactory', ['$http', function($http){
     				callback()
     			})
     		}
+            this.remove_from_top = function(body, callback){
+                $http.post('/removecollectionfromtop', body).then(callback())
+            }
 	}
 	return new profileFactory()
 }])
-

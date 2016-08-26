@@ -6,19 +6,19 @@
 </div>
 <h2>Top Collections </h2>
 <div class= 'top_collections'>
-    <div ng-repeat="collection in user._topcollections" ng-click = 'show_collection(collection._id)'>
+    <div ng-repeat="collection in user._topcollections" >
         <div class='collection'>
-            {{collection.name}}<br>
-            {{collection.description}}
+            <div class='title' ng-click = 'show_collection(collection._id)'>{{collection.name}}</div><br>
+            <div class='desc'>{{collection.description}}</div><br>
             <div class='removeicon'><input type="image" src='static/images/remove.jpg' alt="remove_from_top" width="30px" height="auto" ng-click='remove_from_top(collection._id)'></div>
         </div>
     </div>
 </div><br><br>
 <h2>Subjects</h2>
-<div class= 'subjects'>
-    <div ng-repeat='subject in user._subjects' ng-click ='show_subject(subject._id)'>
-        {{subject.name}}
-        {{subject.description}}
+<div class= 'subjects' >
+    <div  ng-repeat='subject in user._subjects' class= 'onesub'>
+        <div class= 'title'> <a href="#/subject/{{subject._id}}">{{subject.name}}</a><br></div>
+        <div class= 'desc'>{{subject.description}}</div>
     </div>
 </div><br><br>
 
@@ -26,7 +26,7 @@
     <!-- <button class= 'addbut'>Add a Collection</button> -->
     <input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto">
     <input type="image" src='static/images/find1.jpg' alt='findcollection' height="78px" width="auto">
-    <input class='mycol' type="image" src='static/images/index.jpg' alt='mycollection' height="68px" width="auto" >
+    <a href="#/user_collections"><input class='mycol' type="image" src='static/images/index.jpg' alt='mycollection' height="68px" width="auto" ></a>
     <!-- mycollection -->
 </div>
 

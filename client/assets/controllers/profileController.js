@@ -26,6 +26,7 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
     }
 
     $scope.show_subject = function(id){
+        console.log(subject);
       $location.url('/subject/' + id)
     }
 
@@ -34,6 +35,15 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
       profileFactory.add_collection($scope.newCollection,function(data){
         $location.url('/collection/' + data._id)
       })
+    }
+    $scope.remove_from_top = function(id){
+        $scope.body = {};
+        $scope.body._user = $scope.user._id;
+        $scope.body._collection = id
+        console.log($scope.body);
+        profileFactory.remove_from_top($scope.body, function(){
+            $scope.index();
+        })
     }
 
     $scope.add_subject = function(){

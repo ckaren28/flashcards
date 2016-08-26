@@ -178,3 +178,15 @@ textarea{
     height: 40%;
     width: 100%;
 }
+.desc{
+    font-size: 15px;
+}
+.title{
+    font-size: 25px;
+}
+.onesub, .collection{
+    display: inline-block;
+    width: 30%;
+    border: 3px solid #63cd40;
+    background-color: white;
+}

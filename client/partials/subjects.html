@@ -1,17 +1,17 @@
 <div class= 'topbanner'>
         <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
         <h1>FlashCards</h1><br><br><br><br>
-        <div class= 'home'><a href='#/home'>Home</a></div>
+        <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
         <div class= 'logout' ng- click='logout()' > Logout</div>
         <hr color="#63cd40" >
     </div><br>
     <input type="search" placeholder="Search for a Collection" class='searchbar'>
 
 
-<h2> All Collections in {{subject_name}} </h2>
-<div class= 'allsubjects' ng-click='view_collection()'>
-    <div class= 'collection'>
-        {{all collections in a subject}}<br>
+<h2> All Collections in {{subject.name}} </h2>
+<div class= 'allsubjects'>
+    <div class= 'collection1' ng-repeat="collection in subject._collections" ng-click='view_collection(collection._id)' >
+        {{collection.name}}<br>
         <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top()'>
     </div><br>
 </div>
