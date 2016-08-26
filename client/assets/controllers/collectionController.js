@@ -12,7 +12,6 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
   $scope.show_collection = function(){
     collectionFactory.show_collection($routeParams.id, function(returned_data){
       $scope.collection = returned_data
-      console.log($scope.collection._notecards)
     })
   }
 

@@ -13,12 +13,10 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
     $scope.index = function(){
       profileFactory.index($scope.user._id, function(returned_Data){
         $scope.user = returned_Data
-        console.log($scope.user)
       })
     }
 
     $scope.logout = function(){
-      console.log('logout')
       $cookies.remove('user')
       $location.url('/')
     }
@@ -39,7 +37,6 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
     }
 
     $scope.add_subject = function(){
-      console.log('subject')
       $scope.newSubject._user = $scope.user._id;
       profileFactory.add_subject($scope.newSubject,function(){
         $scope.newSubject = {}

@@ -13,15 +13,14 @@ function collectionFactory(){
             callback()
         })
     }
-    this.removecardfromcard = function(id,callback){
-        $http.post('/removecard/' + id).then(function(){
+    this.removecardfromcard = function(card,callback){
+        $http.post('/removecard/' + card._id, card).then(function(){
             callback()
         })
     }
 
     this.nextcard = function(collid,cardid,callback){
         $http.get('/nextcard/'+collid+'/'+cardid).then(function(data){
-            console.log(data.data)
             callback(data.data)
         })
     }
