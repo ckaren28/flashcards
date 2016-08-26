@@ -24,7 +24,6 @@ app.controller('loginController', ['$scope', 'userFactory', '$location', '$cooki
 		userFactory.login($scope.loginUser, function(data){
 			$scope.loginmessages = {}
 			if(data.data){
-				$scope.errors = true;
 				$scope.loginmessages.error = data.data
 			}
 			else{

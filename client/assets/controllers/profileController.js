@@ -40,7 +40,6 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
         $scope.body = {};
         $scope.body._user = $scope.user._id;
         $scope.body._collection = id
-        console.log($scope.body);
         profileFactory.remove_from_top($scope.body, function(){
             $scope.index();
         })

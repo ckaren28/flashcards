@@ -20,11 +20,11 @@ module.exports = function(app){
     //need to pass userid as param user // will get collections back based on user
     app.get('/getcollectionsbyuser/:user', Collection.getcollectionsbyuser)
     //need to pass userid as req.body._user, collection id as req.body._collection// will push collection into user top collection array// will return nothing
-    app.get('/addtotopcollections', Collection.addtotopcollections)
+    app.post('/addtotopcollections', Collection.addtotopcollections)
     //need to pass name as req.body.name, public as req.body.public, description as req.body.description, userid as req.body._user, categoryid as req.body._category// will add //will return nothing
     app.post('/addcollection', Collection.addcollection)
     //need to pass collection id as req.params.id, userid as req.body._user // will remove collection completely from database// will return nothing
-    app.get('/removecollection/:id', Collection.removecollection)
+    app.post('/removecollection/:id', Collection.removecollection)
     //need to pass userid of cookied user as req.body._user // will remove colleciton from topcolleciton// will return nothing
     app.post('/removecollectionfromtop', Collection.removecollectionfromtop)
     //need to pass collection id as param id, need to pass name as req.body.name, description as req.body.description, public as req.body.public // will return edited collection
