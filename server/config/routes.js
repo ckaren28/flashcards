@@ -30,6 +30,7 @@ module.exports = function(app){
     //need to pass collection id as param id, need to pass name as req.body.name, description as req.body.description, public as req.body.public // will return edited collection
     app.post('/editcollection/:id', Collection.editcollection)
     //need to pass subect id as param id // will  return subect with populated user and collecitons info
+    app.get('/shufflecollection/:id', Collection.shufflecollection)
     app.get('/getsubject/:id', Subject.getsubject)
     //no need to pass anything // will return all subjects
     app.get('/getsubjects', Subject.getsubjects)
@@ -39,6 +40,8 @@ module.exports = function(app){
     app.post('/editsubject/:id', Subject.editsubject)
     //need to pass subject id as param id// pass subect user as req.body._user// will remove subject id // will return nothing
     app.get('/removesubject/:id', Subject.removesubject)
+
+    app.get('/nextcard/:collid/:cardid', Notecard.nextcard)
     //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection // will return notecard
     app.post('/pushcard', Notecard.pushcard)
     //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection, pass current index as req.body.index// will return notecard
@@ -47,7 +50,7 @@ module.exports = function(app){
     //need to pass notecard id as params id, question as req.body.question, answer as req.body.answer// will return notecardd
     app.post('/editcard/:id', Notecard.editcard)
     //need to pass notecard id as params, collection id as req.body._collection // will remove notecard from list will return nothing
-    app.get('/removecard/:id', Notecard.removecard)
+    app.post('/removecard/:id', Notecard.removecard)
     //need to pass review id as param id,
     app.get('/getreview/:id', Review.getreview)
     //need to pass rating as req.body.rating, review as req.body.review, user id as req.body._user, collection id as req.body._collection// will return review

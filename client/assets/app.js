@@ -29,6 +29,10 @@ app.config(function($routeProvider){ $routeProvider
         templateUrl:'partials/flashcard.html',
         controller: 'notecardController'
     })
+    .when('/editcard/:id',{
+        templateUrl:'partials/edit_card.html',
+        controller: 'notecardController'
+    })
     .when('/test/:id' , {
         templateUrl:'partials/test.html',
         controller: 'notecardController'

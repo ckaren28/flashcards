@@ -1,7 +1,7 @@
 <div class= 'topbanner'>
         <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
         <h1>FlashCards</h1><br><br><br><br>
-        <div class= 'home'><a href='#/home'>Home</a></div>
+        <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
         <div class= 'logout' ng- click='logout()' > Logout</div>
         <hr color="#63cd40" >
     </div><br>
@@ -9,14 +9,14 @@
 <div class= 'content'>
     <div class= 'card'>
         {{card.question}}
-        <input type="image" src='static/images/next.jpg' alt='nextcard' height="80px" width="auto" class='next'>
+        <input type="image" src='static/images/next.jpg' alt='nextcard' height="80px" width="auto" class='next' ng-click='nextcard()'>
     </div>
     <div class= 'sidebar'>
-        <input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto"><br>
-        <input type="image" src='static/images/delete.jpg' alt='removecard' height="60px" width="auto" class='icon'><br>
-        <input type="image" src='static/images/edit.jpg' alt='edit' height="88px" width="auto"><br>
+        <input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto" ng-click="addcardtoindex()"><br>
+        <input type="image" src='static/images/delete.jpg' alt='removecard' height="60px" width="auto" class='icon' ng-click='removecard()'><br>
+        <input type="image" src='static/images/edit.jpg' alt='edit' height="88px" width="auto" ng-click='editcard()'><br>
 
         <br><br><br>
-        <input type="image" src='static/images/collection.jpg' alt='back_to_collection' height="80px" width="auto" ng-click='#/collection/{{_collection.id}}'>
+        <input type="image" src='static/images/collection.jpg' alt='back_to_collection' height="80px" width="auto" ng-click='backtocollection()'>
     </div>
 </div>
