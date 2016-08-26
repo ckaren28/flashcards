@@ -1,16 +1,18 @@
 <div class= 'topbanner'>
     <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
     <h1>FlashCards</h1><br><br><br><br>
-    <div class= 'home'><a href='#/home'>Home</a></div>
-    <div class= 'logout' ng- click='logout()' > Logout</div>
+    <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
+    <div class= 'logout' ng-click='logout()' > Logout</div>
     <hr color="#63cd40" >
 </div><br>
 <h2>Edit</h2>
-<div class= 'card'>
-    <textarea rows="7" cols="36">{{card.front}}</textarea>
-</div>
-<div class= 'card'>
-    <textarea rows="7" cols="36">{{card.back}}</textarea><br><br>
-    <input type="submit" name="submit" value="Done" class = 'submit'>
-</div>
+	<form ng-submit="editcardnow()">
+		<div class= 'card'>
+    		<textarea rows="7" cols="36" ng-model="editedCard.question"></textarea>
+		</div>
+		<div class= 'card'>
+    		<textarea rows="7" cols="36" ng-model="editedCard.answer"></textarea><br><br>
+    		<input type="submit" name="submit" value="Done" class ='submit'>
+		</div>
+	</form>
 <br><br><br>

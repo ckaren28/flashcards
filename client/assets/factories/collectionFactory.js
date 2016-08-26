@@ -1,14 +1,35 @@
 app.factory('collectionFactory', ['$http', function($http){
-  function collectionFactory(){
 
-    ////////////////////// Start of profile page ////////////////////////////
+function collectionFactory(){
 
-    //from the collection controller, this is to go see my top collection
-    		this.show_collection = function(id, callback){
-    			$http.get('/getcollection/' + id).then(function(returned_data){
-    				callback(returned_data.data)
-    			})
-    		}
+
+	this.show_collection = function(id, callback){
+		$http.get('/getcollection/' + id).then(function(returned_data){
+			callback(returned_data.data)
+		})
+	}
+    this.shuffle = function(id,callback){
+        $http.get('/shufflecollection/' + id).then(function(){
+            callback()
+        })
+    }
+    this.removecardfromcard = function(id,callback){
+        $http.post('/removecard/' + id).then(function(){
+            callback()
+        })
+    }
+
+    this.nextcard = function(collid,cardid,callback){
+        $http.get('/nextcard/'+collid+'/'+cardid).then(function(data){
+            console.log(data.data)
+            callback(data.data)
+        })
+    }
+    this.editcard= function(editedcard, callback){
+        $http.post('/editcard/'+editedcard._id, editedcard).then(function(){
+            callback()
+        })
+    }
 
     //from collection controller, shows all collections created by user
         this.get_collection_by_user = function(id){
@@ -36,18 +57,18 @@ app.factory('collectionFactory', ['$http', function($http){
     			})
     		}
     ///////////////////////// End of profile page ////////////////////////////
-            this.add_card = function(newCard, callback){
-                $http.post('/pushcard', newCard ).then(function(){
-                    callback();
-                })
-            }
-            this.show_card = function(id, callback){
-                $http.get('/showcard/' +id).then(function(data){
-                    callback(data.data)
-                })
-            }
+    this.add_card = function(newCard, callback){
+        $http.post('/pushcard', newCard ).then(function(){
+            callback();
+        })
+    }
 
+    this.show_card = function(id, callback){
+        $http.get('/showcard/' +id).then(function(data){
+            callback(data.data)
+        })
+    }
+}
+return new collectionFactory()
 
-	}
-	return new collectionFactory()
 }])

@@ -155,6 +155,26 @@ function collectionController(){
 			}
 		})
 	}
+	this.shufflecollection = function(req,res){
+		Collection.findOne({_id:req.params.id}, function(err, collection){
+			for(var i = 0; i < collection._notecards.length; i++){
+				var repindex = Math.floor(Math.random()*collection._notecards.length)
+				var repcardid = collection._notecards[repindex]
+				var icardid = collection._notecards[i]
+				var temp = repcardid
+				collection._notecards.set(i,temp) 
+				collection._notecards.set(repindex,icardid)
+			}
+			collection.save(function(err){
+				if(err){
+					res.json(err)
+				}
+				else{
+					res.json(collection)
+				}
+			})
+		})
+	}
 }
 
 module.exports = new collectionController()
