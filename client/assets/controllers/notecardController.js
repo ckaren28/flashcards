@@ -18,7 +18,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
     }
     $scope.add_card_index = function(){
         $scope.newCardIndex.index = $routeParams.cardid
-        $scope.newCardIndex._collection = $routeParams.colid ;   
+        $scope.newCardIndex._collection = $routeParams.colid ;
         collectionFactory.add_card_index($scope.newCardIndex, function(data){
             $location.url('/card/'+ data._id)
         })
@@ -71,7 +71,8 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
             }
         })
     }
-    $scope.backtocollection = function(id){
+    $scope.backtocollection = function(){
+        console.log($scope.card);
         $location.url('/collection/' + $scope.card._collection)
     }
     $scope.logout = function(){

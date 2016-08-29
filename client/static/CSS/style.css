@@ -21,6 +21,11 @@ h1{
     font-size: 45px;
     font-style: bold;
 }
+h5{
+    /*font-size: 25px;*/
+    vertical-align: middle;
+    padding-top: 20%;
+}
 
 .login, .registration{
     display: inline-block;
@@ -103,6 +108,7 @@ a{
     background-image:url('./../images/linepaper1.jpg');
     height: 40%;
     width: 50%;
+    vertical-align: top;
 }
 .next{
     position: absolute;
@@ -175,6 +181,8 @@ textarea{
     width: 200px;
     height: 150px;
     display: inline-block;
+    justify-content: center;
+    align-items: center;
 }
 .addcard{
     border: 15px solid  #63cd40;
@@ -188,7 +196,7 @@ textarea{
 .title{
     font-size: 25px;
 }
-.onesub, .collection, .collection1{
+.onesub, .collection {
     display: inline-block;
     width: 25%;
     border: 3px solid #63cd40;
@@ -209,4 +217,51 @@ textarea{
 }
 .removeicon, .title{
     display: inline-block;
+}
+.collection1{
+    display: inline-block;
+    width: 18%;
+    border: 3px solid #63cd40;
+    background-color: white;
+    vertical-align: top;
+    height: 100px;
+    padding: 10px;
+
+}
+.text-size-slider {
+    line-height: 100%;
+    font-size: 14px;
+}
+
+.text-size-slider .small-letter,.text-size-slider .big-letter
+{
+  font-weight: bold;
+}
+
+.text-size-slider .slider {
+  -webkit-appearance: none;
+  margin: 0 8px;
+}
+
+.text-size-slider .slider:focus {
+  outline: none;
+}
+
+.text-size-slider .slider::-webkit-slider-thumb {
+  border: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-top: -6px;
+}
+
+.text-size-slider .slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: white;
+  border: 0;
 }

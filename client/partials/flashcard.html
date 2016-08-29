@@ -1,3 +1,4 @@
+
 <div class= 'topbanner'>
         <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
         <h1>FlashCards</h1><br><br><br><br>
@@ -9,7 +10,7 @@
 <div class= 'content'>
     <div ng-click="swap()" class= 'card'>
         <input type="image" src='static/images/back.png' alt='back' height="80px" width="auto" class='back' ng-click='lastcard(); $event.stopPropagation()'>
-        {{display}}
+        <h5>{{display}}</h5>
         <input type="image" src='static/images/next.png' alt='nextcard' height="80px" width="auto" class='next' ng-click='nextcard() ; $event.stopPropagation()'>
     </div>
     <div class= 'sidebar'>
@@ -19,5 +20,11 @@
 
         <br><br><br>
         <input type="image" src='static/images/collection.jpg' alt='back_to_collection' height="80px" width="auto" ng-click='backtocollection()'>
+    </div>
+
+    <footer ng-app='textSizeSlider'>
+     <text-size-slider min="12" max="24" unit="px" value="18"> <input type="range" name="fontsize"></text-size-slider>
+        <br><br><br><br><br>
+    </footer>
     </div>
 </div>
