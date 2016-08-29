@@ -45,5 +45,15 @@ function usersController(){
 				}
 			})
 	}
+	this.getusernotop = function(req,res){
+		User.findOne({_id: req.params.id},function(err,user){
+				if(err){
+					res.json(err)
+				}
+				else{
+					res.json(user)
+				}
+			})
+	}
 }
 module.exports = new usersController()

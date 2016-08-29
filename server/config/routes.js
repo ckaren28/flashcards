@@ -14,6 +14,7 @@ module.exports = function(app){
     //need to pass user id as req.body._id, get id from cookied user // will get user topcollections, subject back
     app.get('/getuser/:id', User.getuser)
     //need to pass collection id as param id // will get collection back with reviews, notecards and subject info
+    app.get('/getusernotop/:id',User.getusernotop)
     app.get('/getcollection/:id', Collection.getcollection)
     //need to pass subject id as param sub // will get collections back based on subject
     app.get('/getcollectionsbysub/:sub', Collection.getcollectionsbysub)

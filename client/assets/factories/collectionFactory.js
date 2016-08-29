@@ -79,6 +79,11 @@ app.factory('collectionFactory', ['$http', function($http){
                 callback(return_data.data)
             })
         }
+        this.getusernotop = function(id,callback){
+            $http.get('/getusernotop/' + id).then(function(return_data){
+                callback(return_data.data)
+            })
+        }
     }
     return new collectionFactory()
 
