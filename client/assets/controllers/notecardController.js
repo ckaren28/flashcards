@@ -2,6 +2,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
 
     $scope.card = {};
     $scope.user = {};
+
     if($cookies.getObject('user')){
       $scope.user = $cookies.getObject('user')
     }
@@ -21,10 +22,22 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
         collectionFactory.add_card_index($scope.newCardIndex, function(data){
             $location.url('/card/'+ data._id)
         })
-
-
     }
-
+    $scope.editcard = function(){
+        $location.url('/editcard/'+$scope.card._id)
+    }
+    $scope.editcardnow = function(){
+        collectionFactory.editcard($scope.editedCard, function(){
+            $location.url('/card/' + $scope.card._id)
+        })
+    }
+    $scope.show_card = function(){
+        collectionFactory.show_card($routeParams.id, function(data){
+            $scope.card = data
+            $scope.editedCard = data
+            $scope.display = $scope.card.question
+        })
+    }
     $scope.swap = function(){
         if($scope.card.question == $scope.display){
             $scope.display = $scope.card.answer
@@ -33,21 +46,9 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
             $scope.display = $scope.card.question
         }
     }
-
-    $scope.show_card = function(){
-        collectionFactory.show_card($routeParams.id, function(data){
-            $scope.card = data
-            $scope.editedCard = data
-            $scope.display = $scope.card.question
-        })
-    }
-
-    $scope.editcard = function(){
-        $location.url('/editcard/'+$scope.card._id)
-    }
-    $scope.editcardnow = function(){
-        collectionFactory.editcard($scope.editedCard, function(){
-            $location.url('/card/' + $scope.card._id)
+    $scope.removecard = function(){
+        collectionFactory.removecardfromcard($scope.card, function(){
+            $location.url('/collection/' + $scope.card._collection)
         })
     }
     $scope.nextcard = function(){
@@ -73,17 +74,10 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
     $scope.backtocollection = function(id){
         $location.url('/collection/' + $scope.card._collection)
     }
-    $scope.removecard = function(){
-        collectionFactory.removecardfromcard($scope.card, function(){
-            $location.url('/collection/' + $scope.card._collection)
-        })
-    }
     $scope.logout = function(){
         $cookies.remove('user')
         $location.url('/')
     }
+
     $scope.show_card()
-
-
-
 }]);

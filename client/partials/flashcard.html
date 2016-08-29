@@ -2,15 +2,15 @@
         <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
         <h1>FlashCards</h1><br><br><br><br>
         <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
-        <div class= 'logout' ng- click='logout()' > Logout</div>
+        <div class= 'logout' ng-click='logout()' > Logout</div>
         <hr color="#63cd40" >
     </div><br>
 
 <div class= 'content'>
     <div ng-click="swap()" class= 'card'>
-        <input type="image" src='static/images/back.png' alt='back' height="80px" width="auto" class='back' ng-click='lastcard()'>
+        <input type="image" src='static/images/back.png' alt='back' height="80px" width="auto" class='back' ng-click='lastcard(); $event.stopPropagation()'>
         {{display}}
-        <input type="image" src='static/images/next.png' alt='nextcard' height="80px" width="auto" class='next' ng-click='nextcard()'>
+        <input type="image" src='static/images/next.png' alt='nextcard' height="80px" width="auto" class='next' ng-click='nextcard() ; $event.stopPropagation()'>
     </div>
     <div class= 'sidebar'>
         <a href='#/addcard/{{card._collection}}/{{card._id}}'><input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto"></a><br>

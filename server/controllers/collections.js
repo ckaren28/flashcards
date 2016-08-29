@@ -41,6 +41,16 @@ function collectionController(){
 			}
 		})
 	}
+	this.getcollections = function(req,res){
+		Collection.find({public:true}, function(err, collections){
+			if(err){
+				res.json(err)
+			}
+			else{
+				res.json(collections)
+			}
+		})
+	}
 	this.addtotopcollections = function(req,res){
 		User.findOne({_id: req.body._user}, function(err,user){
 			user._topcollections.push(req.body._collection)
@@ -56,7 +66,6 @@ function collectionController(){
 	}
 	this.addcollection = function(req,res){
 		var collection = Collection({name: req.body.name, public: req.body.public, description: req.body.description, _user:req.body._user, _subject:req.body._subject})
-		console.log(collection);
 		collection.save(function(err){
 			if(err){
 				res.json(err)
