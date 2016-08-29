@@ -19,6 +19,8 @@ module.exports = function(app){
     app.get('/getcollectionsbysub/:sub', Collection.getcollectionsbysub)
     //need to pass userid as param user // will get collections back based on user
     app.get('/getcollectionsbyuser/:user', Collection.getcollectionsbyuser)
+    //will return all collections that are public
+    app.get('/getcollections', Collection.getcollections)
     //need to pass userid as req.body._user, collection id as req.body._collection// will push collection into user top collection array// will return nothing
     app.post('/addtotopcollections', Collection.addtotopcollections)
     //need to pass name as req.body.name, public as req.body.public, description as req.body.description, userid as req.body._user, categoryid as req.body._category// will add //will return nothing
@@ -40,15 +42,17 @@ module.exports = function(app){
     app.post('/editsubject/:id', Subject.editsubject)
     //need to pass subject id as param id// pass subect user as req.body._user// will remove subject id // will return nothing
     app.get('/removesubject/:id', Subject.removesubject)
-
+    //need to pass collection id and card id as params, will return the next card in the array or null if at the end of the array
     app.get('/nextcard/:collid/:cardid', Notecard.nextcard)
-    //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection // will return notecard
+    //need to pass collection id and card id as params, will return the previous card in the array or null if at the beginning of the array
     app.get('/lastcard/:collid/:cardid', Notecard.lastcard)
+    //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection // will return notecard
     app.post('/pushcard', Notecard.pushcard)
-    //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection, pass current index as req.body.index// will return notecard
+    //need to pass question as req.body.question, answer as req.body.answer, need to pass collection id as req.body._collection // will return notecard
     app.post('/pushcardatindex',Notecard.pushcardatindex)
+ 	// need to pass previous card id as req.body.index, question as req.body.question, answer as req.body.answer, collection id as req.body._collection// will return notecard
     app.get('/showcard/:id', Notecard.show_card)
-    //need to pass notecard id as params id, question as req.body.question, answer as req.body.answer// will return notecardd
+    //need to pass notecard id as params id, question as req.body.question, answer as req.body.answer// will return notecard
     app.post('/editcard/:id', Notecard.editcard)
     //need to pass notecard id as params, collection id as req.body._collection // will remove notecard from list will return nothing
     app.post('/removecard/:id', Notecard.removecard)

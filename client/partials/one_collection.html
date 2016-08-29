@@ -2,21 +2,21 @@
         <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
         <h1>FlashCards</h1><br><br><br><br>
         <div class= 'home'><a ng-href='#/profile/{{user._id}}'>Home</a></div>
-        <div class= 'logout' ng- click='logout()' > Logout</div>
+        <div class= 'logout' ng-click='logout()' > Logout</div>
         <hr color="#63cd40" >
     </div><br>
 
 <h2>{{collection.name}}</h2>
 
 <div>
-<div class= 'listcard'  ng-repeat='card in collection._notecards' ng-click='show_card(card._id)'>
+<div class= 'listcard'  ng-repeat='card in collection._notecards' ng-click='show_card(card._id)' title="{{card.answer}}">
     {{card.question}}
 </div><br><br>
 </div>
 
 <div class= 'buttons'>
-    <input type='image' src='static/images/add.png' height='70px' width='auto' alt='addcard' ng-click='addcard()' class='icon'>
-    <input type='image' src='static/images/shuffle.jpg' height='70px' width='auto' alt='shuffle' ng-click='shuffle()' class='icon'>
-    <input type='image' src='static/images/start.jpg' height='70px' width= 'auto' alt= 'start_studying' class='icon' ng-click='startcard()'>
+    <input type='image' title="Add a notecard" src='static/images/add.png' height='70px' width='auto' alt='addcard' ng-click='addcard()' class='icon'>
+    <input type='image' title="Shuffle your collection" src='static/images/shuffle.jpg' height='70px' width='auto' alt='shuffle' ng-click='shuffle()' class='icon'>
+    <input type='image' title="Start working!" src='static/images/start.jpg' title="Start " height='70px' width= 'auto' alt= 'start_studying' class='icon' ng-click='startcard()'>
     <a href="#/test/{{collection._id}}"><input type='image' src='static/images/test.jpg' height='70px' width='auto' alt ='test' ng-click='test()' class='icon'></a>
 </div>

@@ -1,10 +1,9 @@
-app.controller('loginController', ['$scope', 'userFactory', '$location', '$cookies', function($scope, userFactory, $location, $cookies){
+app.controller('loginController', ['$scope', 'profileFactory', '$location', '$cookies', function($scope, profileFactory, $location, $cookies){
 	$scope.messages={};
 	$scope.loginmessages={}
-
 //Registering new user
 	$scope.register = function(){
-		userFactory.register($scope.newUser, function(data){
+		profileFactory.register($scope.newUser, function(data){
 			$scope.messages ={}
 			if(data.errors){
 				$scope.messages= data.errors
@@ -20,8 +19,9 @@ app.controller('loginController', ['$scope', 'userFactory', '$location', '$cooki
 
 		})
 	}
+//Login old user
 	$scope.login = function(){
-		userFactory.login($scope.loginUser, function(data){
+		profileFactory.login($scope.loginUser, function(data){
 			$scope.loginmessages = {}
 			if(data.data){
 				$scope.loginmessages.error = data.data

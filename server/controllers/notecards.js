@@ -74,7 +74,6 @@ function notecardController(){
 		})
 	}
 	this.pushcardatindex = function(req,res){
-		console.log(req.body);
 		var notecard = Notecard({question : req.body.question, answer : req.body.answer, _collection: req.body._collection})
 		notecard.save(function(err){
 			if(err){

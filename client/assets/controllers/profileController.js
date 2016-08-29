@@ -8,8 +8,6 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
       $location.url('/')
     }
 
-  //show the netflix scroll, this should show all top collections
-  //**********************check**************
     $scope.index = function(){
       profileFactory.index($scope.user._id, function(returned_Data){
         $scope.user = returned_Data
@@ -26,7 +24,6 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
     }
 
     $scope.show_subject = function(id){
-        console.log(subject);
       $location.url('/subject/' + id)
     }
 
