@@ -12,7 +12,7 @@
 <div class= 'all_collections' >
     <div ng-repeat="collection in collections | filter: search" class= 'collection'>
         <a href="#/collection/{{collection._id}}">{{collection.name}}<br></a>
-        <input type="image" ng-if="(user._topcollections.indexOf(collection._id) < -1)" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top(collection._id)'>
+        <input type="image" ng-if="(user._topcollections.indexOf(collection._id) == -1)" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top(collection._id)'>
     </div>
 </div><br><br>
  

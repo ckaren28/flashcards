@@ -11,7 +11,7 @@ app.controller('findController', ['$scope', '$location', 'collectionFactory', '$
     }
 
     $scope.index = function(){
-      collectionFactory.index($scope.user._id, function(return_data){
+      collectionFactory.getusernotop($scope.user._id, function(return_data){
         $scope.user = return_data
         console.log($scope.user)
       })
@@ -19,8 +19,8 @@ app.controller('findController', ['$scope', '$location', 'collectionFactory', '$
 	$scope.get_all_collections = function(){
 		collectionFactory.all_collections(function(return_data){
 			$scope.collections = return_data
-		    for(collection in $scope.collections){
-				console.log($scope.user._topcollections.indexOf(collection._id))
+		    for(var i = 0; i < $scope.collections.length; i++){
+				console.log($scope.user._topcollections.indexOf($scope.collections[i]._id))
 			}
 		})
 	}
