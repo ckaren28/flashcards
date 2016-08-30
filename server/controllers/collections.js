@@ -205,18 +205,14 @@ function collectionController(){
 		})
 	}
 	this.clonecollection = function(req,res){
-		console.log(req.body)
 		Collection.findOne({_id:req.params.id}).populate('_notecards').exec(function(err, collection){
-			console.log('old collection' , collection)
 			var clonecollection = Collection({name:collection.name, public: collection.public, description: collection.description, _subject : collection._subject, _user: req.body._user})
-			console.log('clone collection first', clonecollection)
 			clonecollection.save(function(err){
 				if(err){
 					console.log(err)
 					res.json(err)
 				}
 				else{
-					console.log(clonecollection)
 					for(var i = 0; i < collection._notecards.length;i++){
 						Notecard.findOne({_id: collection._notecards[i]._id}, function(err, notecard){
 							var clonenotecard = Notecard({question: notecard.question, answer: notecard.answer, _collection: clonecollection._id})
