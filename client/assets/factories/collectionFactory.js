@@ -11,8 +11,8 @@ app.factory('collectionFactory', ['$http', function($http){
         this.delete_collection = function(body,id,callback){
             $http.post('/removecollection/' + id, body).then(callback())
         }
-		this.editColName = function(id, callback){
-			$http.post('/editcollection/' + id).then(callback())
+		this.editColName = function(id, body, callback){
+			$http.post('/editcollection/' + id, body).then(callback())
 		}
         // shuffle collection, using random indices
         this.shuffle = function(id,callback){
