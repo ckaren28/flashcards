@@ -11,15 +11,16 @@ else{
 }
 
 $scope.get_subject = function(){
-  subjectFactory.show_subject($routeParams.id, function(data){
-  	$scope.subject = data
-	console.log($scope.subject);
-
+  $scope.body = {}
+  $scope.body._user = $scope.user._id
+  $scope.body._sub = $routeParams.id
+  subjectFactory.show_subject($scope.body, function(return_data){
+  	$scope.subject = return_data
   })
 }
 $scope.index = function(){
-	subjectFactory.index($scope.user._id, function(returned_Data){
-	  $scope.user = returned_Data
+	subjectFactory.index($scope.user._id, function(return_data){
+	  $scope.user = return_data
 	})
 }
 
@@ -36,8 +37,8 @@ $scope.add_to_top = function(id){
       $location.url('/profile/' + $scope.user._id)
     })
 }
-$scope.get_subject();
 $scope.index();
+$scope.get_subject();
 
 
 // $scope.remove_subject = function(){

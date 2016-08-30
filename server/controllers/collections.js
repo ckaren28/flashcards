@@ -22,8 +22,12 @@ function collectionController(){
 			})
 	}
 	this.getcollectionsbysub = function(req,res){
-		Subject.findOne({_id : req.params.sub})
-			.populate('_collections').exec(function(err, subject){
+		Subject.findOne({_id : req.body._sub})
+			.populate({
+				path: '_collections',
+				match: {_user: req.body._user}
+			})
+			.exec(function(err, subject){
 				if(err){
 					res.json(err)
 				}
@@ -234,7 +238,6 @@ function collectionController(){
 							})
 						})
 					}
-					console.log(clonecollection)
 					User.findOne({_id:req.body._user}, function(err,user){
 						if(err){
 							res.json(err)
@@ -242,13 +245,25 @@ function collectionController(){
 						else{
 							user._collections.push(clonecollection)
 							user._topcollections.push(clonecollection)
-							console.log(user)
+							if(user._subjects.indexOf(clonecollection._subject) == -1){
+								user._subjects.push(clonecollection._subject)
+							}
 							user.save({validateBeforeSave: false },function(err){
 								if(err){
 									res.json(err)
 								}
 								else{
-									res.json(user)
+									Subject.findOne({_id: collection._subject}, function(err, subject){
+										subject._collections.push(clonecollection)
+										subject.save(function(err){
+											if(err){
+												res.json(err)
+											}
+											else{
+												res.json(user)
+											}
+										})
+									})
 								}
 							})
 						}
