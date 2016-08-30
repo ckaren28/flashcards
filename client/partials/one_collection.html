@@ -9,9 +9,12 @@
 <div class= 'collection_name' ng-click='toggleModal()'> <h2>{{collection.name}}</h2></div>
 
 
-    <modal-dialog show= 'editModal' width= "750px" height='90%'>
+    <modal-dialog ng-show= 'editModal' width= "750px" height='90%'>
         <form ng-submit = 'edit_col_name()'>
-            <input type="text" ng-model="editcol" placeholder="Change Collection Name">
+            <input type="text" ng-model="editcol.name" placeholder="Change Collection Name"><br>
+            <input type="text" ng-model="editcol.description" placeholder="Change Description"><br>
+            <input type="radio" name='pubpriv' ng-model = 'editcol.public' value= true>Public
+            <input type="radio" name='pubpriv' ng-model = 'editcol.public' value= false>Private<br>
             <input type="submit" value='Done'>
         </form><br>
     </modal-dialog>

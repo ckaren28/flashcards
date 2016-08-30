@@ -26,6 +26,7 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
       collectionFactory.show_collection($routeParams.id, function(return_data){
         $scope.collection = return_data
         console.log($scope.collection);
+        $scope.editModal = false;
       })
     }
 
@@ -57,8 +58,10 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
     }
     $scope.edit_col_name = function(){
         $scope.editModal = false;
-        collectionFactory.editColName($routeParams.id, $scope.body.editcol, function(return_data){
-            show_collection();
+        console.log($scope.editcol);
+        collectionFactory.editColName($routeParams.id, $scope.editcol,
+         function(){
+            $scope.show_collection();
         })
     }
 
