@@ -25,16 +25,11 @@ app.controller('findController', ['$scope', '$location', 'collectionFactory', '$
 		})
 	}
 	$scope.add_to_top = function(id){
-      for(var i = 0; i < $scope.user._topcollections.length;i++){
-        if($scope.user._topcollections[i]._id == id){
-          return;
-        }
-      }
-      $scope.body = {}
-      $scope.body._user = $scope.user._id
+	  $scope.body = {}
+	  $scope.body._user = $scope.user._id
       $scope.body._collection = id
-      collectionFactory.add_to_top($scope.body,function(){
-        $scope.index()
+      collectionFactory.clonecollections($scope.body,function(){
+      	$location.url('/profile/' + $scope.user._id)
       })
     }
     $scope.index()

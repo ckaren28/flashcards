@@ -2,6 +2,7 @@ var mongoose = require('mongoose')
 var Collection = mongoose.model('Collection')
 var Subject = mongoose.model('Subject')
 var User = mongoose.model('User')
+var Notecard = mongoose.model('Notecard')
 
 function collectionController(){
 	this.getcollection = function(req,res){
@@ -196,6 +197,64 @@ function collectionController(){
 				else{
 					res.json(collection)
 				}
+			})
+		})
+	}
+	this.clonecollection = function(req,res){
+		console.log(req.body)
+		Collection.findOne({_id:req.params.id}).populate('_notecards').exec(function(err, collection){
+			console.log('old collection' , collection)
+			var clonecollection = Collection({name:collection.name, public: collection.public, description: collection.description, _subject : collection._subject, _user: req.body._user})
+			console.log('clone collection first', clonecollection)
+			clonecollection.save(function(err){
+				if(err){
+					console.log(err)
+					res.json(err)
+				}
+				else{
+					console.log(clonecollection)
+					for(var i = 0; i < collection._notecards.length;i++){
+						Notecard.findOne({_id: collection._notecards[i]._id}, function(err, notecard){
+							var clonenotecard = Notecard({question: notecard.question, answer: notecard.answer, _collection: clonecollection._id})
+							clonenotecard.save(function(err){
+								if(err){
+									res.json(err)
+								}
+								else{
+									clonecollection._notecards.push(clonenotecard)
+									clonecollection.save(function(err){
+										if(err){
+											res.json(err)
+										}
+										else{
+											console.log(clonenotecard)
+										}
+									})
+								}
+							})
+						})
+					}
+					console.log(clonecollection)
+					User.findOne({_id:req.body._user}, function(err,user){
+						if(err){
+							res.json(err)
+						}
+						else{
+							user._collections.push(clonecollection)
+							user._topcollections.push(clonecollection)
+							console.log(user)
+							user.save({validateBeforeSave: false },function(err){
+								if(err){
+									res.json(err)
+								}
+								else{
+									res.json(user)
+								}
+							})
+						}
+					})
+				}
+
 			})
 		})
 	}

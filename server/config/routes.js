@@ -66,4 +66,6 @@ module.exports = function(app){
     //need to pass review id as param id, pass user id as req.body._user, collection id as req.body._collection// will return nothing
     app.get('/deletereview/:id', Review.deletereview)
 
+    app.post('/clonecollection/:id', Collection.clonecollection)
+
 };
