@@ -53,6 +53,7 @@ var UserSchema = new mongoose.Schema({
 }, {timestamps:true})
 
 UserSchema.pre('save', function(done){
+		if(!this.isNew){ return done()}
 		this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
   		this.confirm_pw = '';
   	done()
