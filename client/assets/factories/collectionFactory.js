@@ -19,6 +19,15 @@ app.factory('collectionFactory', ['$http', function($http){
         this.add_to_top = function(body,callback){
             $http.post('/addtotopcollections', body).then(callback())
         }
+        this.clonecollections = function(body,callback){
+            console.log(body)
+            $http.post('/clonecollection/' + body._collection, body).then(function(return_data){
+                console.log(return_data)
+                callback()
+            })
+        }
+
+
         // gets collection data to display to the user
     	this.show_collection = function(id, callback){
     		$http.get('/getcollection/' + id).then(function(return_data){
