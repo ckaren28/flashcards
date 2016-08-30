@@ -47,7 +47,7 @@ h5{
     left: 7%;
     top: 5%;
 }
-html, body{
+html{
     background-image: url('./../images/wood.png');
     background-size: cover;
     background-repeat: no-repeat;

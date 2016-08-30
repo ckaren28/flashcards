@@ -36,6 +36,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
             $scope.card = data
             $scope.editedCard = data
             $scope.display = $scope.card.question
+            console.log($scope.card._collection._user);
         })
     }
     $scope.swap = function(){
@@ -73,7 +74,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
     }
     $scope.backtocollection = function(){
         console.log($scope.card);
-        $location.url('/collection/' + $scope.card._collection)
+        $location.url('/collection/' + $scope.card._collection._id)
     }
     $scope.logout = function(){
         $cookies.remove('user')

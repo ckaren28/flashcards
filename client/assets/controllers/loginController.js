@@ -35,4 +35,3 @@ app.controller('loginController', ['$scope', 'profileFactory', '$location', '$co
 	}
 
 }])
-

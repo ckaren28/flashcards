@@ -25,6 +25,7 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
     $scope.show_collection = function(){
       collectionFactory.show_collection($routeParams.id, function(return_data){
         $scope.collection = return_data
+        console.log($scope.collection);
       })
     }
 

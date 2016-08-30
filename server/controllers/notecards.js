@@ -38,7 +38,7 @@ function notecardController(){
 		})
 	}
 	this.show_card = function(req, res){
-		Notecard.findOne({_id: req.params.id}, function(err, notecard){
+		Notecard.findOne({_id: req.params.id}).populate('_collection').exec( function(err, notecard){
 			if(err){
 				res.json(err)
 			}

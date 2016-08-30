@@ -17,6 +17,7 @@ function usersController(){
 						res.json(user)
 					}
 					else{
+						console.log('fuck');
 						res.json({data: "Your password does not match our records"})
 					}
 				}
