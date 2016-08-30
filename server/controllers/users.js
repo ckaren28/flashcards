@@ -4,6 +4,7 @@ var User = mongoose.model('User')
 
 function usersController(){
 	this.login = function(req,res){
+		console.log(req.body)
 		User.findOne({username: req.body.username}, function(err, user){
 			if(err){
 				res.json(err)
