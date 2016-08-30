@@ -14,11 +14,12 @@ function usersController(){
 					res.json({data: "Your information does not match our records"})
 				}
 				else{
+					console.log(user)
+					console.log(bcrypt.compareSync(req.body.password, user.password))
 					if(bcrypt.compareSync(req.body.password, user.password)){
 						res.json(user)
 					}
 					else{
-						console.log('fuck');
 						res.json({data: "Your password does not match our records"})
 					}
 				}
