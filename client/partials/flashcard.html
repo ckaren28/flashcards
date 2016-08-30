@@ -5,26 +5,25 @@
         <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
         <div class= 'logout' ng-click='logout()' > Logout</div>
         <hr color="#63cd40" >
-    </div><br>
+</div>
 
 <div class= 'content'>
     <div ng-click="swap()" class= 'card'>
-        <input type="image" src='static/images/back.png' alt='back' height="80px" width="auto" class='back' ng-click='lastcard(); $event.stopPropagation()'>
         <h5>{{display}}</h5>
-        <input type="image" src='static/images/next.png' alt='nextcard' height="80px" width="auto" class='next' ng-click='nextcard() ; $event.stopPropagation()'>
     </div>
     <div class= 'sidebar'>
+        <text-size-slider min="14" max="75" unit="px" value='26'> <input type="range" name="font-size"></text-size-slider>
         <a href='#/addcard/{{card._collection}}/{{card._id}}'><input type="image" src='static/images/add.png' alt='addtocollection' height="80px" width="auto" ng-if="card._collection._user == user._id"></a><br>
         <input type="image" src='static/images/delete.jpg' alt='removecard' height="60px" width="auto" class='icon' ng-click='removecard()' ng-if="card._collection._user == user._id"><br>
         <input type="image" src='static/images/edit.jpg' alt='edit' height="88px" width="auto" ng-click='editcard()' ng-if="card._collection._user == user._id"><br>
+        <div class= 'back_next'>
+            <input type="image" src='static/images/back.png' alt='back' height="60px" width="auto" class='back' ng-click='lastcard(); $event.stopPropagation()'>
+            <input type="image" src='static/images/next.png' alt='nextcard' height="60px" width="auto" class='next' ng-click='nextcard() ; $event.stopPropagation()'>
+        </div>
 
-        <br><br><br>
+
         <input type="image" src='static/images/collection.jpg' alt='back_to_collection' height="80px" width="auto" ng-click='backtocollection()'>
     </div>
 
-    <footer ng-app='textSizeSlider'>
-     <text-size-slider min="12" max="24" unit="px" value="18"> <input type="range" name="fontsize"></text-size-slider>
-        <br><br><br><br><br>
-    </footer>
-    </div>
+
 </div>

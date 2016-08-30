@@ -15,7 +15,7 @@
    * textSizeSlider Module
    * Contains: directive
    **/
-  angular.module('textSizeSlider', [])
+  angular.module('noteApp', [])
     // textSizeSlider Directive
     .directive('textSizeSlider', ['$document', function ($document) {
       return {

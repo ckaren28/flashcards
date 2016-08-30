@@ -27,7 +27,9 @@ h5{
     vertical-align: middle;
     padding-top: 20%;
 }
-
+.priv{
+    font-size: 12px;
+}
 .login, .registration{
     display: inline-block;
     padding: 60px;
@@ -55,9 +57,11 @@ html{
     flex-direction: column;
     overflow: auto;
     min-height: 100%;
+    background-attachment: fixed;
 }
 .topbanner{
     background-image: url('./../images/linepaper.jpg');
+    font-size: 19px;
 
 }
 
@@ -102,9 +106,11 @@ a{
     background-color: #63cd40;
     opacity: .8;
     vertical-align: top;
-    width: 15%;
-    height: auto;
+    width: 25%;
+    height: 50%;
     text-align: center;
+    font-size: 18px;
+
 
 }
 .card,  .add_card{
@@ -114,11 +120,7 @@ a{
     width: 50%;
     vertical-align: top;
 }
-.next{
-    position: absolute;
-    right: 37%;
-    bottom: 25%;
-}
+
 textarea{
     background-color: transparent;
     border: none;
@@ -215,11 +217,10 @@ textarea{
     height: 300px;
 
 }
-.back{
-    position: absolute;
-    left: 19%;
-    bottom: 25%;
+.back, .next{
+    display: inline-block;
 }
+
 .removeicon, .title{
     padding: 0px;
     margin: 0px;
@@ -239,6 +240,7 @@ textarea{
 .text-size-slider {
     line-height: 100%;
     font-size: 14px;
+    text-align: center;
 }
 
 .text-size-slider .small-letter,.text-size-slider .big-letter
@@ -272,4 +274,7 @@ textarea{
   cursor: pointer;
   background: white;
   border: 0;
+}
+.fieldset{
+    font-size: 20px;
 }

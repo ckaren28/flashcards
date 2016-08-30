@@ -58,7 +58,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
                 $location.url('/card/' + data.data)
             }
             else{
-                $location.url('/collection/' + $scope.card._collection)
+                $location.url('/collection/' + $scope.card._collection._id)
             }
         })
     }
@@ -68,7 +68,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
                 $location.url('/card/' + data.data)
             }
             else{
-                $location.url('/collection/' + $scope.card._collection)
+                $location.url('/collection/' + $scope.card._collection._id)
             }
         })
     }
