@@ -8,7 +8,7 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
       $location.url('/')
     }
 
-    $scope.freedom = function(){
+    $scope.index = function(){
       profileFactory.index($scope.user._id, function(returned_Data){
         $scope.user = returned_Data
       })
@@ -46,10 +46,10 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
       $scope.newSubject._user = $scope.user._id;
       profileFactory.add_subject($scope.newSubject,function(){
         $scope.newSubject = {}
-        $scope.freedom();
+        $scope.index();
       })
     }
 
 
-    $scope.freedom();
+    $scope.index();
 }]);
