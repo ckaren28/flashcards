@@ -4,11 +4,18 @@
         <div class= 'home'><a ng-href='#/profile/{{user._id}}'>Home</a></div>
         <div class= 'logout' ng-click='logout()' > Logout</div>
         <hr color="#63cd40" >
-    </div><br>
+</div><br>
 
-<h2>{{collection.name}}</h2>
+<div class= 'collection_name' ng-click='toggleModal()'> <h2>{{collection.name}}</h2></div>
 
-<div>
+
+    <modal-dialog show= 'editModal' width= "750px" height='90%'>
+        <form ng-submit = 'edit_col_name()'>
+            <input type="text" ng-model="editcol" placeholder="Change Collection Name">
+            <input type="submit" value='Done'>
+        </form><br>
+    </modal-dialog>
+
 <div class= 'listcard'  ng-repeat='card in collection._notecards' ng-click='show_card(card._id)' title="{{card.answer}}">
     <section><h5>{{card.question}}</h5></section>
 </div><br><br>

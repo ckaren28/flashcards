@@ -1,6 +1,6 @@
 app.factory('collectionFactory', ['$http', function($http){
 
-    function collectionFactory(){    
+    function collectionFactory(){
         //adds a collection to user, will also add to top collections of user, returns collection data to display
         this.add_collection = function(collection, callback){
             $http.post('/addcollection', collection).then(function(return_data){
@@ -11,6 +11,9 @@ app.factory('collectionFactory', ['$http', function($http){
         this.delete_collection = function(body,id,callback){
             $http.post('/removecollection/' + id, body).then(callback())
         }
+		this.editColName = function(id, callback){
+			$http.post('/editcollection/' + id).then(callback())
+		}
         // shuffle collection, using random indices
         this.shuffle = function(id,callback){
             $http.get('/shufflecollection/' + id).then(callback())
@@ -25,7 +28,7 @@ app.factory('collectionFactory', ['$http', function($http){
     			callback(return_data.data)
     		})
     	}
-        // gets the all collection data for the user to display on the full page 
+        // gets the all collection data for the user to display on the full page
     	this.show_user_collections = function(id, callback){
     		$http.get('/getcollectionsbyuser/' + id).then(function(return_data){
     			callback(return_data.data)

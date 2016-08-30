@@ -3,6 +3,7 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
     $scope.collection = {};
     $scope.collections = [];
     $scope.user = {};
+    $scope.editModal = false;
 
     if($cookies.getObject('user')){
       $scope.user = $cookies.getObject('user')
@@ -15,6 +16,10 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
       collectionFactory.index($scope.user._id, function(return_data){
         $scope.user = return_data
       })
+    }
+
+    $scope.toggleModal = function(){
+        $scope.editModal = !$scope.editModal;
     }
 
     $scope.show_collection = function(){
@@ -48,6 +53,12 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
       collectionFactory.add_to_top($scope.body,function(){
         $location.url('/profile/' + $scope.user._id)
       })
+    }
+    $scope.edit_col_name = function(){
+        $scope.editModal = false;
+        collectionFactory.editColName($routeParams.id, $scope.body.editcol, function(return_data){
+            show_collection();
+        })
     }
 
     $scope.delete_collection = function(id){

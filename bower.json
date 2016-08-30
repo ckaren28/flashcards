@@ -17,6 +17,8 @@
   "dependencies": {
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
-    "angular-cookies": "^1.5.8"
+    "angular-cookies": "^1.5.8",
+    "ng-dialog": "^0.6.4",
+    "ngModal": "^1.2.2"
   }
 }
