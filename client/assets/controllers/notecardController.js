@@ -36,7 +36,6 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
             $scope.card = data
             $scope.editedCard = data
             $scope.display = $scope.card.question
-            console.log($scope.card._collection._user);
         })
     }
     $scope.swap = function(){
@@ -49,11 +48,12 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
     }
     $scope.removecard = function(){
         collectionFactory.removecardfromcard($scope.card, function(){
-            $location.url('/collection/' + $scope.card._collection)
+            console.log($scope.card);
+            $location.url('/collection/' + $scope.card._collection._id)
         })
     }
     $scope.nextcard = function(){
-        collectionFactory.nextcard($scope.card._collection,$scope.card._id,function(data){
+        collectionFactory.nextcard($scope.card._collection._id,$scope.card._id,function(data){
             if(data.data){
                 $location.url('/card/' + data.data)
             }
@@ -63,7 +63,7 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
         })
     }
     $scope.lastcard = function(){
-        collectionFactory.lastcard($scope.card._collection,$scope.card._id,function(data){
+        collectionFactory.lastcard($scope.card._collection._id,$scope.card._id,function(data){
             if(data.data){
                 $location.url('/card/' + data.data)
             }

@@ -72,10 +72,11 @@ html{
     color: #63cd40;
     font-size: 20px;
     font-weight: bold;
+    margin-left: 15px;
 }
 
 .home{
-    right: 10%;
+    right: 15%;
 }
 
 a{
