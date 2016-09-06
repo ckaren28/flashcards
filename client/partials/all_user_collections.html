@@ -1,5 +1,5 @@
 <div class= 'topbanner'>
-    <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
+    <img src="static/images/logo.png" width="120px" height="auto" class='logo'>
     <h1>FlashCards</h1><br><br><br><br>
     <div class= 'home'><a href='#/profile/{{user._id}}'>Home</a></div>
     <div class= 'logout' ng-click='logout()' > Logout</div>
@@ -12,7 +12,7 @@
 <div class= 'all_users_collections' >
     <div class= 'collection' ng-repeat= 'collection in collections| filter: search'>
         <a href='#/collection/{{collection._id}}'>{{collection.name}}</a><br>
-        <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top(collection._id)'>
+        <input type="image" src='static/images/addicon.png' alt="add_to_top" width="28px" height="auto" ng-click='add_to_top(collection._id)'>
         <input type="image" src='static/images/remove.jpg' alt="delete" width="30px" height="auto" ng-click='delete_collection(collection._id)'>
     </div>
 </div><br><br>

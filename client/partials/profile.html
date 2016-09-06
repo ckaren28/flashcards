@@ -1,6 +1,6 @@
 <div>
 <div class= 'topbanner'>
-    <img src="/static/images/logo.png" width="60px" height="auto" class='logo'>
+    <img src="/static/images/logo.png" width="120px" height="auto" class='logo'>
     <h1>FlashCards</h1><br><br><br><br>
     <div class= 'logout' ng-click='logout()'>Logout</div>
     <hr color="#63cd40" >
@@ -8,7 +8,7 @@
 <h2>Top Collections </h2>
 <div class= 'top_collections'>
     <div ng-repeat="collection in user._topcollections" class='collection'>
-            <div class='removeicon'><input type="image" title="Remove from your top collections" src='static/images/remove.jpg' alt="remove_from_top" width="16px" height="auto" ng-click='remove_from_top(collection._id)'></div>
+            <div class='removeicon'><input type="image" title="Remove from your top collections" src='static/images/minus.png' alt="remove_from_top" width="36px" height="auto" ng-click='remove_from_top(collection._id)'></div>
             <div class='title' ng-click = 'show_collection(collection._id)'>{{collection.name}}</div>
             <div class='desc'>{{collection.description}}</div>
     </div>
@@ -22,8 +22,9 @@
 </div><br><br>
 
 <div class = 'others'>
-    <a href="#/find_collection"><input type="image" src='static/images/find1.jpg' alt='findcollection' height="78px" width="auto"></a>
+    <a href="#/find_collection"><input type="image" src='static/images/find.png' alt='findcollection' height="78px" width="auto"></a>
     <a href="#/user_collections"><input class='mycol' title="Go to my collections" type="image" src='static/images/index.jpg' alt='mycollection' height="68px" width="auto" ></a>
+
     <!-- mycollection -->
 </div>
 

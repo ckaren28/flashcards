@@ -1,5 +1,5 @@
 <div class= 'topbanner'>
-        <img src="static/images/logo.png" width="60px" height="auto" class='logo'>
+        <img src="static/images/logo.png" width="120px" height="auto" class='logo'>
         <h1>FlashCards</h1><br><br><br><br>
         <div class= 'home'><a ng-href='#/profile/{{user._id}}'>Home</a></div>
         <div class= 'logout' ng-click='logout()' > Logout</div>
@@ -26,8 +26,8 @@
 </div>
 
 <div class= 'buttons'>
-    <input type='image' title="Add a notecard" src='static/images/add.png' height='70px' width='auto' alt='addcard' ng-if='collection._user == user._id' ng-click='addcard()' class='icon'>
-    <input type='image' title="Shuffle your collection" src='static/images/shuffle.jpg' height='70px' width='auto' alt='shuffle' ng-if='collection._user == user._id' ng-click='shuffle()' class='icon'>
-    <input type='image' title="Start working!" src='static/images/start.jpg' title="Start " height='70px' width= 'auto' alt= 'start_studying' class='icon' ng-click='startcard()'>
-    <a href="#/test/{{collection._id}}"><input type='image' src='static/images/test.jpg' height='70px' width='auto' alt ='test' ng-click='test()' class='icon'></a>
+    <input type='image' title="Add a notecard" src='static/images/adds.png' height='80px' width='80' alt='addcard' ng-if='collection._user == user._id' ng-click='addcard()' class='icon'>
+    <input type='image' title="Shuffle your collection" src='static/images/shuffle.jpg' height='85px' width='auto' alt='shuffle' ng-if='collection._user == user._id' ng-click='shuffle()' class='icon'>
+    <input type='image' title="Start working!" src='static/images/start.jpg' title="Start " height='80px' width= 'auto' alt= 'start_studying' class='icon' ng-click='startcard()'>
+    <!-- <a href="#/test/{{collection._id}}"><input type='image' src='static/images/test.jpg' height='70px' width='auto' alt ='test' ng-click='test()' class='icon'></a> -->
 </div>

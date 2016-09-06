@@ -46,8 +46,8 @@ h5{
 }
 .logo{
     position: absolute;
-    left: 7%;
-    top: 5%;
+    left: 5%;
+    top: 3%;
 }
 html{
     background-image: url('./../images/wood.png');
@@ -103,6 +103,7 @@ a{
     border: 3px solid #131313;
     border-radius: 50%
 }
+
 .sidebar{
     background-color: #63cd40;
     opacity: .8;
