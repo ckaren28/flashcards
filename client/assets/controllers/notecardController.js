@@ -48,7 +48,6 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
     }
     $scope.removecard = function(){
         collectionFactory.removecardfromcard($scope.card, function(){
-            console.log($scope.card);
             $location.url('/collection/' + $scope.card._collection._id)
         })
     }
@@ -73,7 +72,6 @@ app.controller('notecardController', ['$scope', '$location', 'collectionFactory'
         })
     }
     $scope.backtocollection = function(){
-        console.log($scope.card);
         $location.url('/collection/' + $scope.card._collection._id)
     }
     $scope.logout = function(){

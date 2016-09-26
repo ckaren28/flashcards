@@ -9,18 +9,18 @@ app.factory('collectionFactory', ['$http', function($http){
         }
         // deletes collection completely
         this.delete_collection = function(body,id,callback){
-            $http.post('/removecollection/' + id, body).then(callback())
+            $http.post('/removecollection/' + id, body).then(callback)
         }
 		this.editColName = function(id, body, callback){
-			$http.post('/editcollection/' + id, body).then(callback())
+			$http.post('/editcollection/' + id, body).then(callback)
 		}
         // shuffle collection, using random indices
         this.shuffle = function(id,callback){
-            $http.get('/shufflecollection/' + id).then(callback())
+            $http.get('/shufflecollection/' + id).then(callback)
         }
         // adds collection to top collections of user
         this.add_to_top = function(body,callback){
-            $http.post('/addtotopcollections', body).then(callback())
+            $http.post('/addtotopcollections', body).then(callback)
         }
         this.clonecollections = function(body,callback){
             console.log(body)
@@ -48,7 +48,7 @@ app.factory('collectionFactory', ['$http', function($http){
         }
         //adds card to the collection
         this.add_card = function(newCard, callback){
-            $http.post('/pushcard', newCard).then(callback())
+            $http.post('/pushcard', newCard).then(callback)
         }
         //adds card  at the defined index
         this.add_card_index = function(newCard, callback){
@@ -58,11 +58,11 @@ app.factory('collectionFactory', ['$http', function($http){
         }
         // edits selected card
         this.editcard= function(editedcard, callback){
-            $http.post('/editcard/'+editedcard._id, editedcard).then(callback())
+            $http.post('/editcard/'+editedcard._id, editedcard).then(callback)
         }
         // removes card from selected card page
         this.removecardfromcard = function(card,callback){
-            $http.post('/removecard/' + card._id, card).then(callback())
+            $http.post('/removecard/' + card._id, card).then(callback)
         }
         // gets card info to display to the user
         this.show_card = function(id, callback){

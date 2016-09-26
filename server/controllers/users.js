@@ -44,6 +44,7 @@ function usersController(){
 					res.json(err)
 				}
 				else{
+					console.log(user)
 					res.json(user)
 				}
 			})

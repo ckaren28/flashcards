@@ -15,11 +15,11 @@ app.factory('profileFactory', ['$http', function($http){
 		}
 		//to add subject callback calls index again
 		this.add_subject = function(subject, callback){
-			$http.post('/addsubject', subject).then(callback())
+			$http.post('/addsubject', subject).then(callback)
 		}
 		// to remove collection from top collections
         this.remove_from_top = function(body, callback){
-            $http.post('/removecollectionfromtop', body).then(callback())
+            $http.post('/removecollectionfromtop', body).then(callback)
         }
 		//to add user
         this.register = function(newuser, callback){

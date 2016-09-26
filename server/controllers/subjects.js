@@ -36,13 +36,13 @@ function subjectController(){
 						res.json(err)
 					}
 					else{
-						user._subjects.push(subject)
+						user._subjects.push(subject._id)
 						user.save({validateBeforeSave: false}, function(err){
 							if(err){
 								res.json(err)
 							}
 							else{
-								res.send()
+								res.json(user)
 							}
 						})
 					}

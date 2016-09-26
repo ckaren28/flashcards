@@ -15,7 +15,7 @@ app.factory('subjectFactory', ['$http', function($http){
         }
         // from the subject page will allow collection to be added to the top collections of user
         this.add_to_top = function(body,callback){
-            $http.post('/addtotopcollections', body).then(callback())
+            $http.post('/addtotopcollections', body).then(callback)
         }
 	}
 	return new subjectFactory()
