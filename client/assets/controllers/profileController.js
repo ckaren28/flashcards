@@ -9,8 +9,8 @@ app.controller('profileController', ['$scope', '$location', 'profileFactory', '$
     }
 
     $scope.index = function(){
-      profileFactory.index($scope.user._id, function(returned_Data){
-        $scope.user = returned_Data
+      profileFactory.index($scope.user._id, function(return_data){
+        $scope.user = return_data
       })
     }
 
