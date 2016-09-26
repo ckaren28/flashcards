@@ -69,6 +69,7 @@ function collectionController(){
 			})
 		})
 	}
+
 	this.addcollection = function(req,res){
 		var collection = Collection({name: req.body.name, public: req.body.public, description: req.body.description, _user:req.body._user, _subject:req.body._subject})
 		collection.save(function(err){

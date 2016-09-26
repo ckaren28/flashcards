@@ -12,7 +12,6 @@
         <h5>{{display}}</h5>
     </div>
     <div class= 'sidebar'>
-        <text-size-slider min="14" max="75" unit="px" value='26'> <input type="range" name="font-size"></text-size-slider>
         <a href='#/addcard/{{card._collection._id}}/{{card._id}}'><input type="image" src='static/images/add.png' alt='addtocollection' height="90" width="auto" ng-if="card._collection._user == user._id"></a><br>
         <input type="image" src='static/images/delete1.gif' alt='removecard' height="70" width="auto" class='icon' ng-click='removecard()' ng-if="card._collection._user == user._id"><br>
         <input type="image" src='static/images/edit.jpg' alt='edit' height="100" width="auto" ng-click='editcard()' ng-if="card._collection._user == user._id"><br>

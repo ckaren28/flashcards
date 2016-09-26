@@ -12,6 +12,5 @@
 <div class= 'allsubjects'>
     <div class= 'collection1' ng-repeat="collection in subject._collections | filter: search" >
         <a href="#/collection/{{collection._id}}">{{collection.name}}</a><br>
-        <input type="image" src='static/images/add.png' alt="add_to_top" width="30px" height="auto" ng-click='add_to_top(collection._id)'>
     </div><br>
 </div>

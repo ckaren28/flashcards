@@ -43,7 +43,7 @@ app.controller('collectionController', ['$scope', '$location', 'collectionFactor
       })
     }
 
-    $scope.add_to_top = function(id){
+    $scope.add_to_top = function(id, flash){
       for(var i = 0; i < $scope.user._topcollections.length;i++){
         if($scope.user._topcollections[i]._id == id){
           return;
